@@ -8,12 +8,9 @@ class Academico extends Conexion{
 
 	#REGISTRO DE USUARIOS
 	#-------------------------------------
-	public function Adicionar($datosModel){
-		$stmt = Conexion::conectar()->prepare("INSERT INTO `dependencia` (`idDependencia`, `codigo`, `nombre`, `sigla`, `type`) VALUES (NULL,:code,:name,:sigla,:option)");	
-		$stmt->bindParam(":code", $datosModel["code"], PDO::PARAM_STR);
-		$stmt->bindParam(":name", $datosModel["name"], PDO::PARAM_STR);
-		$stmt->bindParam(":sigla", $datosModel["sigla"], PDO::PARAM_STR);
-		$stmt->bindParam(":option", $datosModel["option"], PDO::PARAM_STR);
+	public function Adicionar($datosModel,$normal = true){
+		$stmt = Conexion::conectar()->prepare("INSERT INTO `dependencia`(`idDependencia`, `main`, `codigo`, `nombre`, `sigla`, `type`, `procesoCalidad`, `Dependencia_idDependencia`) VALUES ".
+		"(NULL,'".$datosModel["main"]."','".$datosModel["code"]."','".$datosModel["name"]."','".$datosModel["sigla"]."','".$datosModel["type"]."',".$datosModel["calidad"].",".$datosModel["recursividad"].")");
 		if($stmt->execute()){
 			return "success";
 		}else{
@@ -22,98 +19,13 @@ class Academico extends Conexion{
 		$stmt->close();
 
 	}
-
-	#INGRESO USUARIO
-	#-------------------------------------
-	public function ingresoUsuarioModel($datosModel, $tabla){
-
-		$stmt = Conexion::conectar()->prepare("SELECT usuario, password FROM $tabla WHERE usuario = :usuario");	
-		$stmt->bindParam(":usuario", $datosModel["usuario"], PDO::PARAM_STR);
-		$stmt->execute();
-
-		#fetch(): Obtiene una fila de un conjunto de resultados asociado al objeto PDOStatement. 
-		return $stmt->fetch();
-
-		$stmt->close();
-
-	}
-
-	#VISTA USUARIOS
-	#-------------------------------------
-
+	
 	public function datos(){
-		$stmt = Conexion::conectar()->prepare("SELECT `codigo`, `nombre`, `sigla`  FROM `dependencia` WHERE `type`='Academico'");	
+		$stmt = Conexion::conectar()->prepare("SELECT `codigo`, `nombre`, `sigla`  FROM `dependencia` WHERE `main`='Academico'");	
 		$stmt->execute();
 
 		#fetchAll(): Obtiene todas las filas de un conjunto de resultados asociado al objeto PDOStatement. 
 		return $stmt->fetchAll();
-
-		$stmt->close();
-
-	}
-
-	#EDITAR USUARIO
-	#-------------------------------------
-
-	public function editarUsuarioModel($datosModel, $tabla){
-
-		$stmt = Conexion::conectar()->prepare("SELECT id, usuario, password, email FROM $tabla WHERE id = :id");
-		$stmt->bindParam(":id", $datosModel, PDO::PARAM_INT);	
-		$stmt->execute();
-
-		return $stmt->fetch();
-
-		$stmt->close();
-
-	}
-
-	#ACTUALIZAR USUARIO
-	#-------------------------------------
-
-	public function actualizarUsuarioModel($datosModel, $tabla){
-
-		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET usuario = :usuario, password = :password, email = :email WHERE id = :id");
-
-		$stmt->bindParam(":usuario", $datosModel["usuario"], PDO::PARAM_STR);
-		$stmt->bindParam(":password", $datosModel["password"], PDO::PARAM_STR);
-		$stmt->bindParam(":email", $datosModel["email"], PDO::PARAM_STR);
-		$stmt->bindParam(":id", $datosModel["id"], PDO::PARAM_INT);
-
-		if($stmt->execute()){
-
-			return "success";
-
-		}
-
-		else{
-
-			return "error";
-
-		}
-
-		$stmt->close();
-
-	}
-
-
-	#BORRAR USUARIO
-	#------------------------------------
-	public function borrarUsuarioModel($datosModel, $tabla){
-
-		$stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE id = :id");
-		$stmt->bindParam(":id", $datosModel, PDO::PARAM_INT);
-
-		if($stmt->execute()){
-
-			return "success";
-
-		}
-
-		else{
-
-			return "error";
-
-		}
 
 		$stmt->close();
 

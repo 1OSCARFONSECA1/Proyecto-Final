@@ -1,18 +1,24 @@
     <h1>Herramientas de La Dependencia Academica</h1>
     <p>Información: La aplicación debe permitir que se gestionen (adicionen, modifiquen e inactiven) las dependencias académicas para lo cual se requieren los siguientes datos: código de la dependencia, nombre y sigla.</p>
 <br/>
-<form method="post">
-<input type="hidden" name="option" value="Academico" />
+  <form method="post">
+<input type="hidden" name="main" value="Academico" />
   <center>
-  <label>Código de Facultad</label>
-  <input type="text" name="code" placeholder="Código de Facultad" />
+  <label>Código de </label>
+  <select name="type">
+  <option value="Seleccione" selected>Seleccione</option>
+  <option value="facultad">facultad</option>
+  <option value="programa">programa</option>
+  <option value="departamento">departamento</option>
+</select>
+  <input type="text" name="code" placeholder="Código" />
   <label>Nombre</label>
-        <input type="text" name="name" placeholder="nombre" />
-        <label>Sigla</label>
-        <input type="text" name="sigla" placeholder="sigla" />
-        <br/>
-        <label>Adicionar</label>
-  <select name="code">
+  <input type="text" name="name" placeholder="nombre" />
+  <label>Sigla</label>
+  <input type="text" name="sigla" placeholder="sigla" />
+  <br/>
+  <label>Adicionar</label>
+  <select id="element">
   <option value="Seleccione" selected>Seleccione</option>
   <option value="programa">programa</option>
   <option value="departamento">departamento</option>

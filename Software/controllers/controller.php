@@ -175,11 +175,13 @@ class MvcController{
 	public function academic(){
 		if(isset($_POST)&&isset($_POST["option"])){
 			$respuesta = "";
-			$datosController = array( "code"=>$_POST["code"], 
-								      "name"=>$_POST["name"],
-									  "sigla"=>$_POST["sigla"],
-									"option"=>$_POST["option"]);
-
+			$datosController = array( 
+				"main"=>$_POST["main"],
+				"code"=>$_POST["code"],
+				"name"=>$_POST["name"],	
+				"sigla"=>$_POST["sigla"],
+				"type"=>$_POST["type"],
+			);
 		if(isset($_POST["add"])){
 			$respuesta = Academico::Adicionar($datosController);
 		}else if(isset($_POST["mod"])){
