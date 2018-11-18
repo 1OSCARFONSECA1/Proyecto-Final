@@ -8,7 +8,7 @@ class Paginas{
 			$module =  "views/modules/".$enlaces.".php";
 		}
 		else if($enlaces == "index"){
-			$module =  "views/modules/registro.php";
+			$module =  "views/modules/index.php";
 		}
 		else if($enlaces == "ok"){
 			$module =  "views/modules/registro.php";
