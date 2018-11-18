@@ -32,12 +32,8 @@ class Academico extends Conexion{
 	public function datos(){
 		$stmt = Conexion::conectar()->prepare("SELECT `codigo`, `nombre`, `sigla`  FROM `dependencia` WHERE `main`='Academico'");	
 		$stmt->execute();
-
-		#fetchAll(): Obtiene todas las filas de un conjunto de resultados asociado al objeto PDOStatement. 
 		return $stmt->fetchAll();
-
 		$stmt->close();
-
 	}
 
 }
