@@ -173,7 +173,7 @@ class MvcController{
 	}
 
 	public function academic(){
-		if(isset($_POST)&&isset($_POST["option"])){
+		if(isset($_POST)&&isset($_POST["main"])){
 			$respuesta = "";
 			$datosController = array( 
 				"main"=>$_POST["main"],
