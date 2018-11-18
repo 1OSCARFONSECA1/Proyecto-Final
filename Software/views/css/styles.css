@@ -167,3 +167,13 @@ table thead tr th{
 table tbody tr td{
 	padding:10px;
 }
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: red;
+    color: white;
+    text-align: center;
+}
