@@ -188,10 +188,14 @@ class MvcController{
 		}else if(isset($_POST["mod"])){
 
 		}else if(isset($_POST["inac"])){
+		}
+		}
+		if(isset($_GET)&&$_GET['off']=="true"){
+			$respuesta = Academico::inactivar($_GET['codigo']);
+		}
+		
+		echo $respuesta;	
 
-		}
-			echo $respuesta;
-		}
 	}
 
 	public function vistaAcademic(){

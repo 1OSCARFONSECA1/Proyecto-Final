@@ -15,7 +15,7 @@ class Academico extends Conexion{
 		$stmt->bindParam(":code", $datosModel["code"], PDO::PARAM_STR);
 		$stmt->bindParam(":name", $datosModel["name"], PDO::PARAM_STR);
 		$stmt->bindParam(":sigla", $datosModel["sigla"], PDO::PARAM_STR);
-		$stmt->bindParam(":typeMain", $datosModel["type"][0], PDO::PARAM_STR);
+		$stmt->bindParam(":typeMain", $datosModel["type"], PDO::PARAM_STR);
 		$stmt->bindParam(":active",$datosModel["active"], PDO::PARAM_STR);
 		if($normal!=true){
 		$stmt->bindParam(":calidad", $datosModel["calidad"], PDO::PARAM_STR);
@@ -30,6 +30,19 @@ class Academico extends Conexion{
 
 	}
 	
+	public function inactivar($code){
+
+		$stmt = Conexion::conectar()->prepare("UPDATE dependencia SET active = 'false' WHERE codigo = :code");
+		$stmt->bindParam(":code", $code, PDO::PARAM_STR);
+		if($stmt->execute()){
+			return "success";
+		}else{
+			return "error".var_dump($datosModel);
+		}
+		$stmt->close();
+
+	}
+
 	public function datos(){
 		$stmt = Conexion::conectar()->prepare("SELECT `codigo`, `nombre`, `sigla`  FROM `dependencia` WHERE `main`='Academico'");	
 		$stmt->execute();
