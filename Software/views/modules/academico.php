@@ -16,7 +16,7 @@
   <input type="text" name="name" placeholder="nombre" />
   <label>Sigla</label>
   <input type="text" name="sigla" placeholder="sigla" />
-  <label>Activo (sí)</label><input type="checkbox" name="active" value="true" checked>
+  <label>Activo: </label><input type="checkbox" name="active" value="1" checked>
   <br/><br/><hr/>
   <label>Adicionar</label>
   <select id="element">

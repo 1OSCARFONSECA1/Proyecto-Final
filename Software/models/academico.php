@@ -15,8 +15,8 @@ class Academico extends Conexion{
 		$stmt->bindParam(":code", $datosModel["code"], PDO::PARAM_STR);
 		$stmt->bindParam(":name", $datosModel["name"], PDO::PARAM_STR);
 		$stmt->bindParam(":sigla", $datosModel["sigla"], PDO::PARAM_STR);
-		$stmt->bindParam(":typeMain", $datosModel["type"], PDO::PARAM_STR);
-		$stmt->bindParam(":active", $datosModel["active"], PDO::PARAM_STR);
+		$stmt->bindParam(":typeMain", $datosModel["type"][0], PDO::PARAM_STR);
+		$stmt->bindParam(":active",$datosModel["active"], PDO::PARAM_STR);
 		if($normal!=true){
 		$stmt->bindParam(":calidad", $datosModel["calidad"], PDO::PARAM_STR);
 		$stmt->bindParam(":recursividad",  $datosModel["recursividad"], PDO::PARAM_STR);
