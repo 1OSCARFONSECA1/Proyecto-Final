@@ -1,4 +1,4 @@
-<p class="lead text-white">Bienvenido al control de la Vicerrectoría académica</p>
+<h1>Bienvenido al control de la Vicerrectoría académica</h1>
 <figure>
-<img src="./views/images/uniboyaca.png" style="width: 200px;" class="img-fluid">
+<img src="../views/images/uniboyaca.png" style="width: 200px;" class="img-fluid">
 </figure>
