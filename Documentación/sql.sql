@@ -25,10 +25,10 @@ DROP TABLE IF EXISTS `mydb`.`Dependencia` ;
 
 CREATE TABLE IF NOT EXISTS `mydb`.`Dependencia` (
   `idDependencia` INT NOT NULL AUTO_INCREMENT,
-  `codigo` VARCHAR(45) NULL,
-  `nombre` VARCHAR(45) NULL,
-  `sigla` VARCHAR(45) NULL,
-  `type` ENUM("Academico", "Administrativo") NULL,
+  `codigo` ENUM("facultad", "programa","departamento") NOT NULL,
+  `nombre` VARCHAR(45) NOT NULL,
+  `sigla` VARCHAR(45) NOT NULL,
+  `type` ENUM("Academico", "Administrativo") NOT NULL,
   PRIMARY KEY (`idDependencia`))
 ENGINE = InnoDB;
 

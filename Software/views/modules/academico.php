@@ -4,7 +4,13 @@
 <form method="post">
 <input type="hidden" name="option" value="Academico" />
   <center>
-        <input type="text" name="code" placeholder="código de la dependencia">
+  <label>Código</label>
+  <select name="code">
+  <option value="Seleccione" selected>Seleccione</option>
+  <option value="facultad">facultad</option>
+  <option value="programa">programa</option>
+  <option value="departamento">departamento</option>
+</select>
         <input type="text" name="name" placeholder="nombre" />
         <input type="text" name="sigla" placeholder="sigla" />
         <br/>

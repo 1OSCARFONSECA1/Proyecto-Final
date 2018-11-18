@@ -1,8 +1,8 @@
-DROP DATABASE IF EXISTS db_users;
+DROP DATABASE IF EXISTS mydb;
 
-CREATE DATABASE db_users DEFAULT CHARACTER SET utf8 COLLATE utf8_spanish_ci;
+CREATE DATABASE mydb DEFAULT CHARACTER SET utf8 COLLATE utf8_spanish_ci;
 
-use db_users;
+use mydb;
 
 DROP TABLE IF EXISTS usuarios;
 CREATE TABLE usuarios (

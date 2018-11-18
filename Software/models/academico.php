@@ -9,8 +9,11 @@ class Academico extends Conexion{
 	#REGISTRO DE USUARIOS
 	#-------------------------------------
 	public function Adicionar($datosModel){
-		$stmt = Conexion::conectar()->prepare("INSERT INTO `dependencia` (`idDependencia`, `codigo`, `nombre`, `sigla`, `type`) VALUES (NULL,'".$datosModel["code"]."','".$datosModel["name"]."','".$datosModel["sigla"]."','".$datosModel["option"]."')");	
-		echo ("INSERT INTO `dependencia` (`idDependencia`, `codigo`, `nombre`, `sigla`, `type`) VALUES (NULL,'".$datosModel["code"]."','".$datosModel["name"]."','".$datosModel["sigla"]."','".$datosModel["option"]."')");	
+		$stmt = Conexion::conectar()->prepare("INSERT INTO `dependencia` (`idDependencia`, `codigo`, `nombre`, `sigla`, `type`) VALUES (NULL,:code,:name,:sigla,:option)");	
+		$stmt->bindParam(":code", $datosModel["code"], PDO::PARAM_STR);
+		$stmt->bindParam(":name", $datosModel["name"], PDO::PARAM_STR);
+		$stmt->bindParam(":sigla", $datosModel["sigla"], PDO::PARAM_STR);
+		$stmt->bindParam(":option", $datosModel["option"], PDO::PARAM_STR);
 		if($stmt->execute()){
 			return "success";
 		}else{
@@ -39,8 +42,7 @@ class Academico extends Conexion{
 	#-------------------------------------
 
 	public function datos(){
-
-		$stmt = Conexion::conectar()->prepare("SELECT codigo, nombre, sigla FROM dependencia where type = 'Academico'");	
+		$stmt = Conexion::conectar()->prepare("SELECT `codigo`, `nombre`, `sigla`  FROM `dependencia` WHERE `type`='Academico'");	
 		$stmt->execute();
 
 		#fetchAll(): Obtiene todas las filas de un conjunto de resultados asociado al objeto PDOStatement. 
