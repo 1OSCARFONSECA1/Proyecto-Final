@@ -4,19 +4,21 @@
 <form method="post">
 <input type="hidden" name="option" value="Academico" />
   <center>
-  <label>Código</label>
+  <label>Código de Facultad</label>
+  <input type="text" name="code" placeholder="Código de Facultad" />
+  <label>Nombre</label>
+        <input type="text" name="name" placeholder="nombre" />
+        <label>Sigla</label>
+        <input type="text" name="sigla" placeholder="sigla" />
+        <br/>
+        <label>Adicionar</label>
   <select name="code">
   <option value="Seleccione" selected>Seleccione</option>
-  <option value="facultad">facultad</option>
   <option value="programa">programa</option>
   <option value="departamento">departamento</option>
 </select>
-        <input type="text" name="name" placeholder="nombre" />
-        <input type="text" name="sigla" placeholder="sigla" />
-        <br/>
+<br/><hr/>
   <button name="add" type="submit">Adicionar</button>
-  <button name="mod" type="submit">Modificar</button>
-  <button name="off" type="submit">Inactivar</button>
   <button name="list" type="submit">Lista</button>
   </center>
 </form>

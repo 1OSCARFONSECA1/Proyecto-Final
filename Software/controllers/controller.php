@@ -198,8 +198,8 @@ class MvcController{
 				<td>'.$item["codigo"].'</td>
 				<td>'.$item["nombre"].'</td>
 				<td>'.$item["sigla"].'</td>
-				<td><a href="index.php?action=editar&id='.$item["codigo"].'"><button>Editar</button></a></td>
-				<td><a href="index.php?action=usuarios&idBorrar='.$item["codigo"].'"><button>Borrar</button></a></td>
+				<td><a href="index.php?action=dependencia-academica&mod=true&codigo='.$item["codigo"].'"><button>Editar</button></a></td>
+				<td><a href="index.php?action=dependencia-academica&off=true&codigo='.$item["codigo"].'"><button>Inactivar</button></a></td>
 			</tr>';
 
 		}
