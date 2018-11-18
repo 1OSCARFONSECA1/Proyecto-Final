@@ -3,7 +3,7 @@
   <a href="#news">Dependencia Administrativa</a>
   <a href="#contact">Dependencia Academica</a>
   <a href="#about">Consulta</a>
-  <div class="dropdown">
+  <div class="dropdown" style="float: right !important;">
     <button class="dropbtn">Ingreso / Registro 
       <i class="fa fa-caret-down"></i>
     </button>
