@@ -1,0 +1,15 @@
+DROP DATABASE IF EXISTS db_users;
+
+CREATE DATABASE db_users DEFAULT CHARACTER SET utf8 COLLATE utf8_spanish_ci;
+
+use db_users;
+
+DROP TABLE IF EXISTS usuarios;
+CREATE TABLE usuarios (
+id INT NOT NULL AUTO_INCREMENT, 
+usuario VARCHAR(15),
+password VARCHAR(10),
+email VARCHAR(60),
+PRIMARY KEY (id)
+);
+
