@@ -179,20 +179,14 @@ class MvcController{
 								      "name"=>$_POST["name"],
 									  "sigla"=>$_POST["sigla"],
 									"option"=>$_POST["option"]);
-			switch ($_POST) {
-				case $_POST['add']:
-				$respuesta = Academico::Adicionar($datosController);
-					break;
-					case 'mod':
-					$module = "";
-						break;
-						case 'inac':
-				$module = "";
-					break;
 
-			}
-									  
+		if(isset($_POST["add"])){
+			$respuesta = Academico::Adicionar($datosController);
+		}else if(isset($_POST["mod"])){
 
+		}else if(isset($_POST["inac"])){
+
+		}
 			echo $respuesta;
 		}
 	}

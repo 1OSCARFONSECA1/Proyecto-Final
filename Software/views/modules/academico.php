@@ -35,7 +35,6 @@ if(isset($_POST["list"])){
 		<tbody>
 			<?php
 			$controller -> vistaAcademic();
-			$controller -> borrarUsuarioController();
 			?>
 		</tbody>
 	</table>

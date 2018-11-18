@@ -9,25 +9,13 @@ class Academico extends Conexion{
 	#REGISTRO DE USUARIOS
 	#-------------------------------------
 	public function Adicionar($datosModel){
-
-		#prepare() Prepara una sentencia SQL para ser ejecutada por el método PDOStatement::execute(). La sentencia SQL puede contener cero o más marcadores de parámetros con nombre (:name) o signos de interrogación (?) por los cuales los valores reales serán sustituidos cuando la sentencia sea ejecutada. Ayuda a prevenir inyecciones SQL eliminando la necesidad de entrecomillar manualmente los parámetros.
-#
-		$stmt = Conexion::conectar()->prepare("INSERT INTO Dependencia (idDependencia, codigo, nombre, sigla,type) VALUES (null,:codigo,:nombre,:sigla,:type)");	
-
-		#bindParam() Vincula una variable de PHP a un parámetro de sustitución con nombre o de signo de interrogación correspondiente de la sentencia SQL que fue usada para preparar la sentencia.
-
-		$stmt->bindParam(":codigo", $datosModel["code"], PDO::PARAM_STR);
-		$stmt->bindParam(":nombre", $datosModel["name"], PDO::PARAM_STR);
-		$stmt->bindParam(":sigla", $datosModel["sigla"], PDO::PARAM_STR);
-		$stmt->bindParam(":type", $datosModel["option"], PDO::PARAM_STR);
-
+		$stmt = Conexion::conectar()->prepare("INSERT INTO `dependencia` (`idDependencia`, `codigo`, `nombre`, `sigla`, `type`) VALUES (NULL,'".$datosModel["code"]."','".$datosModel["name"]."','".$datosModel["sigla"]."','".$datosModel["option"]."')");	
+		echo ("INSERT INTO `dependencia` (`idDependencia`, `codigo`, `nombre`, `sigla`, `type`) VALUES (NULL,'".$datosModel["code"]."','".$datosModel["name"]."','".$datosModel["sigla"]."','".$datosModel["option"]."')");	
 		if($stmt->execute()){
 			return "success";
+		}else{
+			return "error".var_dump($datosModel);
 		}
-		else{
-			return "error";
-		}
-
 		$stmt->close();
 
 	}
