@@ -158,10 +158,8 @@ section form input[type="submit"]{
 }
 
 table{
-	position:relative;
 	margin:auto;
-	width:100%;
-	left:-10%;
+    width:100%;
 }
 
 table thead tr th{

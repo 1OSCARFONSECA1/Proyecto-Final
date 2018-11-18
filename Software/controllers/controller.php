@@ -172,6 +172,37 @@ class MvcController{
 
 	}
 
+	public function academic(){
+		if(isset($_POST)){
+			$respuesta = "";
+
+			$datosController = array( "code"=>$_POST["code"], 
+								      "name"=>$_POST["name"],
+									  "sigla"=>$_POST["sigla"],
+									"option"=>$_POST["option"]);
+			
+			switch ($_POST) {
+				case 'add':
+				$respuesta = Academico::Adicionar($datosController);
+					break;
+					case 'mod':
+					$module = "";
+						break;
+						case 'inac':
+				$module = "";
+					break;
+
+			}
+									  
+
+			if($respuesta == "success"){
+
+				header("location:&action=ok");
+
+			}
+		}
+	}
+
 }
 
 ?>
