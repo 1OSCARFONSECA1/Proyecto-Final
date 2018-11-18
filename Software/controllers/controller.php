@@ -181,6 +181,7 @@ class MvcController{
 				"name"=>$_POST["name"],	
 				"sigla"=>$_POST["sigla"],
 				"type"=>$_POST["type"],
+				"active"=>$_POST["active"]
 			);
 		if(isset($_POST["add"])){
 			$respuesta = Academico::Adicionar($datosController);

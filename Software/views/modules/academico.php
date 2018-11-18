@@ -16,14 +16,15 @@
   <input type="text" name="name" placeholder="nombre" />
   <label>Sigla</label>
   <input type="text" name="sigla" placeholder="sigla" />
-  <br/>
+  <label>Activo (sí)</label><input type="checkbox" name="active" value="true" checked>
+  <br/><br/><hr/>
   <label>Adicionar</label>
   <select id="element">
   <option value="Seleccione" selected>Seleccione</option>
   <option value="programa">programa</option>
   <option value="departamento">departamento</option>
 </select>
-<br/><hr/>
+<br/><hr/><br/>
   <button name="add" type="submit">Adicionar</button>
   <button name="list" type="submit">Lista</button>
   </center>
