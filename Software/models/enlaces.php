@@ -4,31 +4,33 @@ class Paginas{
 	
 	public function enlacesPaginasModel($enlaces){
 
+	$module = "views/modules/";
 		if($enlaces == "ingresar" || $enlaces == "usuarios" || $enlaces == "editar" || $enlaces == "salir"){
-			$module =  "views/modules/".$enlaces.".php";
+			$module .= $enlaces;
 		}
 
-
+		
 		switch ($enlaces) {
-			case 'dependencia-administrativa':
-			$module .= "administrador";
+				case 'dependencia-administrativa':
+				$module .= "administrador";
 				break;
 				case 'dependencia-academica':
 				$module .= "academico";
 				break;
 				case "cambio":
-				$module =  "views/modules/usuarios.php";
+				$module .= "usuarios";
 				break;
 				case "fallo":
-				$module =  "views/modules/index.php";
+				$module .= "index";
 				break;
 				case "ok":
-				$module =  "views/modules/index-options.php";
+				$module .= "index-options";
 				break;
 				default:
-				$module =  "views/modules/index.php";
+				$module .= "index";
 				break;
 		}
+		$module.=".php";
 		return $module;
 		}
 }

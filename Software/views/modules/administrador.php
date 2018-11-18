@@ -1,4 +1,4 @@
-<div class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 ct-content">
+<div>
     <h1>Herramientas de La Dependencia Administrativa</h1>
     <p>Información: La aplicación debe permitir que se gestionen (adicionen, modifiquen e inactiven) la dependencia administrativas, para lo cual se requieren los siguientes datos: código de la dependencia, nombre y sigla.</p>
 <br/>

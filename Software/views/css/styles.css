@@ -5,6 +5,11 @@ body{
 	height:auto;
 }
 
+a {
+    color: red;
+    text-decoration: none !important;
+}
+
 .topnav {
     overflow: hidden;
     background-color: #333;
@@ -122,8 +127,7 @@ body{
 
 section{
 	position: relative;
-	margin: auto;
-	width:400px;
+	margin: 20px;
 }
 
 section h1{
@@ -169,9 +173,7 @@ table tbody tr td{
 }
 
 footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
+    position: absolute;
     width: 100%;
     background-color: #333;
     color: white;

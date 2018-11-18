@@ -12,12 +12,10 @@
 <body>
 	<?php include "modules/navegacion.php"; ?>
 	<section>
-	<center>
 		<?php 
 		$mvc = new MvcController();
 		$mvc -> enlacesPaginasController();
 		 ?>
-		 </center>
 	</section>
 	<?php include "modules/footer.php"; ?>
 	<!-- Scripts -->

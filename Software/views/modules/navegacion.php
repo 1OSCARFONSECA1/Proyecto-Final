@@ -1,8 +1,8 @@
 <div class="topnav" id="myTopnav">
   <a href="index.php" class="active">Inicio</a>
-  <a href="#news">Dependencia Administrativa</a>
-  <a href="#contact">Dependencia Academica</a>
-  <a href="#about">Consulta</a>
+  <a href="index.php?action=dependencia-administrativa">Dependencia Administrativa</a>
+  <a href="index.php?action=dependencia-academica">Dependencia Academica</a>
+  <a href="index.php?action=consulta">Consulta</a>
   <div class="dropdown" style="float: right !important;">
     <button class="dropbtn">Ingreso / Registro 
       <i class="fa fa-caret-down"></i>
