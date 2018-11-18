@@ -43,6 +43,19 @@ class Academico extends Conexion{
 
 	}
 
+	public function modificar($code){
+
+		$stmt = Conexion::conectar()->prepare("SELECT `codigo`, `nombre`, `sigla`  FROM `dependencia` WHERE `main` = 'Academico' AND codigo = :code");
+		$stmt->bindParam(":code", $code, PDO::PARAM_STR);
+		if($stmt->execute()){
+			return $stmt->fetchAll();
+		}else{
+			return "error".var_dump($datosModel);
+		}
+		$stmt->close();
+
+	}
+
 	public function datos(){
 		$stmt = Conexion::conectar()->prepare("SELECT `codigo`, `nombre`, `sigla`  FROM `dependencia` WHERE `main`='Academico'");	
 		$stmt->execute();

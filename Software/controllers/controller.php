@@ -173,8 +173,9 @@ class MvcController{
 	}
 
 	public function academic(){
+		
+		$respuesta = null;
 		if(isset($_POST)&&isset($_POST["main"])){
-			$respuesta = "";
 			$datosController = array( 
 				"main"=>$_POST["main"],
 				"code"=>$_POST["code"],
@@ -190,12 +191,35 @@ class MvcController{
 		}else if(isset($_POST["inac"])){
 		}
 		}
-		
-		if(isset($_GET)&&$_GET['off']=="true"){
+
+		if(isset($_GET)){
+			if(isset($_GET['off'])&&$_GET['off']=="true"){
 			$respuesta = Academico::inactivar($_GET['codigo']);
+			}else if(isset($_GET['mod'])&&$_GET['mod']=="true"){
+				$respuesta = Academico::modificar($_GET['codigo']);
+			}
 		}
 		
-		echo $respuesta;	
+		if(is_array($respuesta)){
+			foreach($respuesta as $row => $item){
+				echo'<table border="1" class="ml-auto mr-auto">
+				<thead>
+					<tr>
+						<th>Código</th>
+						<th>Nombre</th>
+						<th>Sigla</th>
+					</tr>
+				</thead>
+				<tbody><tr>
+						<td>'.$item["codigo"].'</td>
+						<td>'.$item["nombre"].'</td>
+						<td>'.$item["sigla"].'</td>
+						</tr>
+						</tbody></table>';
+			}
+		}else{
+			echo  $respuesta;
+		}	
 
 	}
 
