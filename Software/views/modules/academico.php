@@ -2,7 +2,7 @@
     <p>Información: La aplicación debe permitir que se gestionen (adicionen, modifiquen e inactiven) las dependencias académicas para lo cual se requieren los siguientes datos: código de la dependencia, nombre y sigla.</p>
 <br/>
 <form method="post">
-<input type="hidden" id="option" value="Academico" />
+<input type="hidden" name="option" value="Academico" />
   <center>
         <input type="text" name="code" placeholder="código de la dependencia">
         <input type="text" name="name" placeholder="nombre" />
@@ -34,7 +34,7 @@ if(isset($_POST["list"])){
 		</thead>
 		<tbody>
 			<?php
-			$controller -> vistaUsuariosController();
+			$controller -> vistaAcademic();
 			$controller -> borrarUsuarioController();
 			?>
 		</tbody>

@@ -4,7 +4,7 @@
 
 require_once "conexion.php";
 
-class AcademicoDAO extends Conexion{
+class Academico extends Conexion{
 
 	#REGISTRO DE USUARIOS
 	#-------------------------------------
@@ -50,9 +50,9 @@ class AcademicoDAO extends Conexion{
 	#VISTA USUARIOS
 	#-------------------------------------
 
-	public function vistaUsuariosModel($tabla){
+	public function datos(){
 
-		$stmt = Conexion::conectar()->prepare("SELECT id, usuario, password, email FROM $tabla");	
+		$stmt = Conexion::conectar()->prepare("SELECT codigo, nombre, sigla FROM dependencia where type = 'Academico'");	
 		$stmt->execute();
 
 		#fetchAll(): Obtiene todas las filas de un conjunto de resultados asociado al objeto PDOStatement. 

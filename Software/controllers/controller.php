@@ -173,16 +173,14 @@ class MvcController{
 	}
 
 	public function academic(){
-		if(isset($_POST)){
+		if(isset($_POST)&&isset($_POST["option"])){
 			$respuesta = "";
-
 			$datosController = array( "code"=>$_POST["code"], 
 								      "name"=>$_POST["name"],
 									  "sigla"=>$_POST["sigla"],
 									"option"=>$_POST["option"]);
-			
 			switch ($_POST) {
-				case 'add':
+				case $_POST['add']:
 				$respuesta = Academico::Adicionar($datosController);
 					break;
 					case 'mod':
@@ -195,12 +193,27 @@ class MvcController{
 			}
 									  
 
-			if($respuesta == "success"){
-
-				header("location:&action=ok");
-
-			}
+			echo $respuesta;
 		}
+	}
+
+	public function vistaAcademic(){
+
+		$respuesta = Academico::datos();
+
+		#El constructor foreach proporciona un modo sencillo de iterar sobre arrays. foreach funciona sólo sobre arrays y objetos, y emitirá un error al intentar usarlo con una variable de un tipo diferente de datos o una variable no inicializada.
+
+		foreach($respuesta as $row => $item){
+		echo'<tr>
+				<td>'.$item["usuario"].'</td>
+				<td>'.$item["password"].'</td>
+				<td>'.$item["email"].'</td>
+				<td><a href="index.php?action=editar&id='.$item["id"].'"><button>Editar</button></a></td>
+				<td><a href="index.php?action=usuarios&idBorrar='.$item["id"].'"><button>Borrar</button></a></td>
+			</tr>';
+
+		}
+
 	}
 
 }
