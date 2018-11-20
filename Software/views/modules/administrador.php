@@ -2,9 +2,9 @@
     <p>Información: La aplicación debe permitir que se gestionen (adicionen, modifiquen e inactiven) la dependencia administrativas, para lo cual se requieren los siguientes datos: código de la dependencia, nombre y sigla.</p>
 <br/>
 <form method="post">
-    <input type="hidden" name="main" value="Academico" />
+    <input type="hidden" name="main" value="Administrativo" />
     <center>
-        <input type="text" name="code" placeholder="Código Dependencia Administrativa" />
+        <input type="number" name="code" placeholder="Código Dependencia Administrativa" />
         <label>Nombre</label>
         <input type="text" name="name" placeholder="Nombre de Dependencia Administrativa" />
         <label>Sigla</label>

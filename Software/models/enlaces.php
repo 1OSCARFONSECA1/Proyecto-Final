@@ -17,6 +17,9 @@ class Paginas{
 				case 'dependencia-academica':
 				$module .= "academico";
 				break;
+				case 'consulta':
+				$module .= "consulta";
+				break;
 				case "cambio":
 				$module .= "usuarios";
 				break;

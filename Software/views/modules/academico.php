@@ -11,7 +11,7 @@
             <option value="programa">programa</option>
             <option value="departamento">departamento</option>
         </select>
-        <input type="text" name="code" placeholder="Código" />
+        <input type="number" name="code" placeholder="Código" min="0" />
         <label>Nombre</label>
         <input type="text" name="name" placeholder="nombre" />
         <label>Sigla</label>

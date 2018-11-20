@@ -1,50 +1,50 @@
 Adicionar (Hijos en academico), Administrativo
-*Modificar TODO
+FALTA: Modificar TODO
 
 Academico: Selecciona facultad aparece el adionionar (programa o departamento)
 
-* Dep. Administrativa puede pertenecer a otra Dep. Administrativa.
+Dep. Administrativa puede pertenecer a otra Dep. Administrativa.
 
 Programas Academicos y Dep.Administrativa: Tienen Proceso de calidad. DB: ProcesoCalidad
 
-Procesos Academicos: (Adicionar, Modificar, Listar) Registro Calificado, Acreditación y auto evaluación: Otra casilla mostrando las caracteristicas anteriormente mencionadas.
+FALTA: Procesos Academicos: (Adicionar, Modificar, Listar) Registro Calificado, Acreditaciï¿½n y auto evaluaciï¿½n: Otra casilla mostrando las caracteristicas anteriormente mencionadas.
 
-Registro Calificado, Acreditación: Add Tiempo de vigencia [años] (calenadar html).
+Registro Calificado, Acreditaciï¿½n: Add Tiempo de vigencia [aï¿½os] (calenadar html).
 
 
 Academicos:
 RC o AC
 -------------------------------
-Numero de Resolución (MEN):
+Numero de Resoluciï¿½n (MEN):
 Tiempo de Vigencia:
 -------------------------------
-auto evaluación
+auto evaluaciï¿½n
 -------------------------------
-Fecha AutoEvaluación
-Fecha Proxima Autoevaluación
+Fecha AutoEvaluaciï¿½n
+Fecha Proxima Autoevaluaciï¿½n
 -------------------------------
 
 
 Administrativas:
-auto evaluación
+auto evaluaciï¿½n
 ------------------------------
-Fecha AutoEvaluación
-Fecha Proxima Autoevaluación
+Fecha AutoEvaluaciï¿½n
+Fecha Proxima Autoevaluaciï¿½n
 ------------------------------
 
 
 Consultas:
 (2 CMB)
 * Procesos de calidad de una dependencia (apartir) -> Filtro Dependencia: (Academica, Administrativa):
----- Historial de: Registro Calificado, Acreditación, AutoEvaluacion
---> Del más reciente al más antiguo: (Resultados):
-	Registro Calificado, Acreditación: Fecha que la obtuvo, numero de men, vigencia, fecha de vigencia.
-	Auto evaluacion: Fecha de la auto evaluación y la prox. auto
+---- Historial de: Registro Calificado, Acreditaciï¿½n, AutoEvaluacion
+--> Del mï¿½s reciente al mï¿½s antiguo: (Resultados):
+	Registro Calificado, Acreditaciï¿½n: Fecha que la obtuvo, numero de men, vigencia, fecha de vigencia.
+	Auto evaluacion: Fecha de la auto evaluaciï¿½n y la prox. auto
 2(cmb)
 * Vencimiento de procesos en meses (rango ejemplo: 10 meses):
 	FIltro de dependencia: academico o admin(cmb)
-	Tipo de proceso a consultar: Registro Calificado, Acreditación, AutoEvaluacion
-		Del más reciente al más antiguo
+	Tipo de proceso a consultar: Registro Calificado, Acreditaciï¿½n, AutoEvaluacion
+		Del mï¿½s reciente al mï¿½s antiguo
 		Ejemplo: - NOmbre de la dependecia, fecha del ultimo proceso, fecha del proximo proceso.
 
 

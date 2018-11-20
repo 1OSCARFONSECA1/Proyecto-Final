@@ -25,7 +25,7 @@ $("select#calidadSelect").change(function () {
     }else if(this.value == "Registro_Calificado" || this.value == "Acreditacion"){
         var text = '';
         text = '<label>Numero de Resolución (MEN):<label> <input type="number" name="numberMEN_'+this.value+'" placeholder="Número del '+this.value+'" />'+
-        '<label>Tiempo de Vigencia del '+this.value+':</label> <input type="date" name="vigencia_'+this.value+'">';
+        '<label>Tiempo de Vigencia del '+this.value+':</label> <input type="number" name="vigencia_'+this.value+'" value="2018" min="2018" >';
         $("#optionOne").html(text);
         $("#optionOne").show();
         $("#optionTwo").hide();
