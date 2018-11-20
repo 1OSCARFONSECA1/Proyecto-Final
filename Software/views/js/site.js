@@ -18,6 +18,24 @@ $("select#typeMain").change(function () {
 });
 
 
+$("select#calidadSelect").change(function () {
+    if(this.value == "Auto_Evaluacion"){
+        $("#optionOne").hide();
+        $("#optionTwo").show();
+    }else if(this.value == "Registro_Calificado" || this.value == "Acreditacion"){
+        var text = '';
+        text = '<label>Numero de Resolución (MEN):<label> <input type="number" name="numberMEN_'+this.value+'" placeholder="Número del '+this.value+'" />'+
+        '<label>Tiempo de Vigencia del '+this.value+':</label> <input type="date" name="vigencia_'+this.value+'">';
+        $("#optionOne").html(text);
+        $("#optionOne").show();
+        $("#optionTwo").hide();
+    }else{
+        $("#optionOne").hide();
+        $("#optionTwo").hide();
+    }
+});
+
+
 $("select#element").change(function () {
     var text = "";
     if(this.value == "programa"||this.value == "departamento"){
@@ -33,6 +51,11 @@ $("select#element").change(function () {
 });
 
 
+$('#addCalidadAdmin').on('click',function(e){
+    $("#calidadAuto").val("calidadAuto");
+    $("#addCalidadAdmin").attr("disabled", true);
+    $("#calidad").show();
+});
 
 $('#addHijito').on('click',function(e){
     $("#hijito").show();

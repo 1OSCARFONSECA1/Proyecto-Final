@@ -1,84 +1,52 @@
-<div>
     <h1>Herramientas de La Dependencia Administrativa</h1>
     <p>Información: La aplicación debe permitir que se gestionen (adicionen, modifiquen e inactiven) la dependencia administrativas, para lo cual se requieren los siguientes datos: código de la dependencia, nombre y sigla.</p>
 <br/>
+<form method="post">
+    <input type="hidden" name="main" value="Academico" />
+    <center>
+        <input type="text" name="code" placeholder="Código Dependencia Administrativa" />
+        <label>Nombre</label>
+        <input type="text" name="name" placeholder="Nombre de Dependencia Administrativa" />
+        <label>Sigla</label>
+        <input type="text" name="sigla" placeholder="Sigla de Dependencia Administrativa" />
+        <label>Activo: </label><input type="checkbox" name="active" value="1" checked>
+        <br/>
+        <hr/><br/>
+        <button id="addHijito"  type="button">Adicionar Dep. Administrativa (Hijo)</button>
+        <button id="addCalidadAdmin" type="button">Adicionar Proceso de Calidad</button>
+        <br/><br/>
+        <div id="hijito">
+            <hr/> Adicionar hijo:
+            <label>Adicionar Dependencia Administrativa</label>
+            <br/>
+            <input type="text" name="code_hijo" placeholder="Código Dependencia Administrativa" />
+        <label>Nombre</label>
+        <input type="text" name="name_hijo" placeholder="Nombre de Dependencia Administrativa" />
+        <label>Sigla</label>
+        <input type="text" name="sigla_hijo" placeholder="Sigla de Dependencia Administrativa" />
+        <label>Activo: </label><input type="checkbox" name="active_hijo" value="1" checked>
+        </div>
+        <hr/>
+        <div id="calidad">
+        <h3>Proceso de calidad</h3>
+            <label>Añadir Auto-Evaluacion</label>
+            <input id="calidadAuto" type="hidden" value="">
+            <br/>
+            <label>Fecha AutoEvaluaciónn: </label> <input type="date" name="autoevaluacion">
+            <label>Fecha Proxima Autoevaluación:</label> <input type="date" name="renovacion">
+            <hr/>
+        </div>
+        <br/>
+        <button name="add" type="submit">Adicionar</button>
+        <button name="list" type="submit">Lista</button>
+    </center>
+</form>
 <br/>
 <strong>Las dependencias Administrativas son:</strong>
 <p>Las dependencias administrativas pueden pertenecer a otra dependencia administrativa.</p>
-<hr/>
-<h2>Lista Academica</h2>
-<table border="1" class="ml-auto mr-auto">
-		<thead>
-			<tr>
-				<th>Código</th>
-				<th>Nombre</th>
-				<th>Sigla</th>
-				<th></th>
-				<th></th>
-			</tr>
-		</thead>
-		<tbody>
-			<?php
-			$vistaUsuario = new MvcController();
-			$vistaUsuario -> vistaUsuariosController();
-			$vistaUsuario -> borrarUsuarioController();
-			?>
-		</tbody>
-	</table>
-<br/><br/>
-<form>
-  <div class="row">
-    <div class="col-md-4">
-      <div class="form-group">
-        <input type="text" class="form-control" id="code" placeholder="código de la dependencia">
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="form-group">
-        <input type="text" placeholder="Regular" id="name" class="form-control" placeholdedr="nombre" />
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="form-group">
-        <input type="text" placeholder="Regular" id="sigla" class="form-control" placeholdedr="sigla" />
-      </div>
-    </div>
-  </div>
-  <br/>
-
-
-<h4>Gestion de los procesos de autoevaluación.</h4>
-
-<div class="input-daterange datepicker row align-items-center">
-    <div class="col">
-Fecha de AutoEvaluación
-    <div class="form-group">
-    <div class="input-group input-group-alternative">
-        <div class="input-group-prepend">
-            <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
-        </div>
-        <input class="form-control datepicker" placeholder="Select date" type="text" value="06/20/2018">
-    </div>
-</div>
-    </div>
-    <div class="col">
-      Proxima Auto Evaluación
-      <div class="form-group">
-    <div class="input-group input-group-alternative">
-        <div class="input-group-prepend">
-            <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
-        </div>
-        <input class="form-control datepicker" placeholder="Select date" type="text" value="06/20/2018">
-    </div>
-</div>
-    </div>
-</div>
-
-</div>
-<div class="ml-auto">
-  <button class="btn btn-1 btn-success" type="button">Adicionar</button>
-  <button class="btn btn-1 btn-warning" type="button">Modificar</button>
-  <button class="btn btn-1 btn-danger" type="button">Inactivar</button>
-  
-  </div>
-</form>
+<?php
+//Inicia el Controlador
+$controller = new MvcController();
+//Realiza todo el proceso de Academia (Resultados o Acciones)
+$controller->academic();
+?>

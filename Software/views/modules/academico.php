@@ -35,18 +35,17 @@
         <hr/>
         <div id="calidad">
         <h3>Proceso de calidad</h3>
-            <label>Añadir </label> Registro Calificado, Acreditación y auto evaluación
-            <select name="type">
+            <label>Añadir </label>
+            <select id="calidadSelect" name="calidadSelect">
               <option value="Seleccione" selected>Seleccione</option>
               <option value="Registro_Calificado">Registro Calificado</option>
               <option value="Acreditacion">Acreditación</option>
               <option value="Auto_Evaluacion">Auto-Evaluacion</option>
             </select>
-            <div id="optionOne">
-                <label>Numero de Resolución (MEN):<label> <input type="number" name="numberMEN" placeholder="Número" />
-                <label>Tiempo de Vigencia:</label> <input type="date" name="vigencia">
+            <br/><br/>
+            <div id="optionOne" style="display:none">
             </div>
-            <div id="optionTwo">
+            <div id="optionTwo"  style="display:none">
             <label>Fecha AutoEvaluaciónn: </label> <input type="date" name="autoevaluacion">
             <label>Fecha Proxima Autoevaluación:</label> <input type="date" name="renovacion">
             </div>
@@ -55,7 +54,6 @@
         <br/>
         <button name="add" type="submit">Adicionar</button>
         <button name="list" type="submit">Lista</button>
-        <br/><br/>
     </center>
 </form>
 <br/>
