@@ -1,0 +1,54 @@
+Adicionar (Hijos en academico), Administrativo
+*Modificar TODO
+
+Academico: Selecciona facultad aparece el adionionar (programa o departamento)
+
+* Dep. Administrativa puede pertenecer a otra Dep. Administrativa.
+
+Programas Academicos y Dep.Administrativa: Tienen Proceso de calidad. DB: ProcesoCalidad
+
+Procesos Academicos: (Adicionar, Modificar, Listar) Registro Calificado, Acreditación y auto evaluación: Otra casilla mostrando las caracteristicas anteriormente mencionadas.
+
+Registro Calificado, Acreditación: Add Tiempo de vigencia [años] (calenadar html).
+
+
+Academicos:
+RC o AC
+-------------------------------
+Numero de Resolución (MEN):
+Tiempo de Vigencia:
+-------------------------------
+auto evaluación
+-------------------------------
+Fecha AutoEvaluación
+Fecha Proxima Autoevaluación
+-------------------------------
+
+
+Administrativas:
+auto evaluación
+------------------------------
+Fecha AutoEvaluación
+Fecha Proxima Autoevaluación
+------------------------------
+
+
+Consultas:
+(2 CMB)
+* Procesos de calidad de una dependencia (apartir) -> Filtro Dependencia: (Academica, Administrativa):
+---- Historial de: Registro Calificado, Acreditación, AutoEvaluacion
+--> Del más reciente al más antiguo: (Resultados):
+	Registro Calificado, Acreditación: Fecha que la obtuvo, numero de men, vigencia, fecha de vigencia.
+	Auto evaluacion: Fecha de la auto evaluación y la prox. auto
+2(cmb)
+* Vencimiento de procesos en meses (rango ejemplo: 10 meses):
+	FIltro de dependencia: academico o admin(cmb)
+	Tipo de proceso a consultar: Registro Calificado, Acreditación, AutoEvaluacion
+		Del más reciente al más antiguo
+		Ejemplo: - NOmbre de la dependecia, fecha del ultimo proceso, fecha del proximo proceso.
+
+
+	
+
+
+

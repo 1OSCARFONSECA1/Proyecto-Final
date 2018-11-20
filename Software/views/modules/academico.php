@@ -33,28 +33,8 @@
 <p><strong>Las dependencias académicas son:</strong> Las facultades, los programas y los departamentos. <i>Una facultad puede tener uno o más programas y uno o más
 departamentos.</i></p>
 <?php
+//Inicia el Controlador
 $controller = new MvcController();
-if(isset($_POST["list"])){
-?>
-<h2>Lista Academica</h2>
-<table border="1" class="ml-auto mr-auto">
-		<thead>
-			<tr>
-				<th>Código</th>
-				<th>Nombre</th>
-				<th>Sigla</th>
-				<th></th>
-				<th></th>
-			</tr>
-		</thead>
-		<tbody>
-			<?php
-			$controller -> vistaAcademic();
-			?>
-		</tbody>
-	</table>
-<?php
-}else{
-	$controller->academic();
-}
+//Realiza todo el proceso de Academia (Resultados o Acciones)
+$controller->academic();
 ?>

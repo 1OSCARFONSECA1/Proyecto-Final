@@ -172,71 +172,95 @@ class MvcController{
 
 	}
 
+	#Process Academic
+	#------------------------------------
 	public function academic(){
 		
 		$respuesta = null;
-		if(isset($_POST)&&isset($_POST["main"])){
-			$datosController = array( 
-				"main"=>$_POST["main"],
-				"code"=>$_POST["code"],
-				"name"=>$_POST["name"],	
-				"sigla"=>$_POST["sigla"],
-				"type"=>$_POST["type"],
-				"active"=>$_POST["active"]
-			);
+
+		if(isset($_POST)){
+			$respuesta = $this::functionsPost();
+		}else if(isset($_GET)){
+			$respuesta = $this::functionsGet();
+		}
+		//Imprime los resultados obtenidos
+		$this::print_answere($respuesta);
+	}
+
+	public function print_answere($txt){
+		if($txt!=null){
+			if (is_array($txt)) {
+				echo "<pre>".highlight_string("<?php\n\$data =\n" . var_export($txt, true) . ";\n?>")."</pre>";
+			} else {
+				echo $txt;
+			}
+		}
+	}
+
+private function functionsPost(){
+	if(isset($_POST["main"])){
+		//Si esta iniciado Main (Academico o Administrativo), obtiene los datos ingresados
+		$datosController = array( 
+			"main"=>$_POST["main"],
+			"code"=>$_POST["code"],
+			"name"=>$_POST["name"],	
+			"sigla"=>$_POST["sigla"],
+			"type"=>$_POST["type"],
+			"active"=>$_POST["active"]
+		);
+		//Presiono el boton de Añadir
 		if(isset($_POST["add"])){
-			$respuesta = Academico::Adicionar($datosController);
-		}else if(isset($_POST["mod"])){
+			//Regresa un valor "Succesfull" si todo salio correcto de lo contrario regresa "Error"
+			return Academico::Adicionar($datosController);
+		}//Presiono el boton de modificar
+		else if(isset($_POST["mod"])){
 
-		}else if(isset($_POST["inac"])){
+		}else if(isset($_POST["list"])){
+			//Imprime una lista de resultados de Academia
+			return $this::vistaAcademic();
 		}
-		}
+	}
+}
 
-		if(isset($_GET)){
-			if(isset($_GET['off'])&&$_GET['off']=="true"){
-			$respuesta = Academico::inactivar($_GET['codigo']);
-			}else if(isset($_GET['mod'])&&$_GET['mod']=="true"){
-				$respuesta = Academico::modificar($_GET['codigo']);
-			}
+private function functionsGet(){
+		//Proceso de Inactivación de Dependencia
+		if(isset($_GET['off'])&&$_GET['off']=="true"){
+			return Academico::inactivar($_GET['codigo']);
+		}//Proceso de Modificacion (Visualización de Datos) de Dependencia
+		else if(isset($_GET['mod'])&&$_GET['mod']=="true"){
+			return Academico::seeDataModify($_GET['codigo']);
 		}
-		
-		if(is_array($respuesta)){
-			foreach($respuesta as $row => $item){
-				echo'<table border="1" class="ml-auto mr-auto">
-				<thead>
-					<tr>
-						<th>Código</th>
-						<th>Nombre</th>
-						<th>Sigla</th>
-					</tr>
-				</thead>
-				<tbody><tr>
-						<td>'.$item["codigo"].'</td>
-						<td>'.$item["nombre"].'</td>
-						<td>'.$item["sigla"].'</td>
-						</tr>
-						</tbody></table>';
-			}
-		}else{
-			echo  $respuesta;
-		}	
-
 	}
 
-	public function vistaAcademic(){
-		$respuesta = Academico::datos();
-		foreach($respuesta as $row => $item){
-		echo'<tr>
-				<td>'.$item["codigo"].'</td>
-				<td>'.$item["nombre"].'</td>
-				<td>'.$item["sigla"].'</td>
-				<td><a href="index.php?action=dependencia-academica&mod=true&codigo='.$item["codigo"].'"><button>Editar</button></a></td>
-				<td><a href="index.php?action=dependencia-academica&off=true&codigo='.$item["codigo"].'"><button>Inactivar</button></a></td>
-			</tr>';
 
-		}
-
+public function vistaAcademic(){
+	$respuesta = Academico::datos();
+	$table = '<h2>Lista Academica</h2>
+	<table border="1" class="ml-auto mr-auto">
+		<thead>
+			<tr>
+				<th>Código</th>
+				<th>Nombre</th>
+				<th>Sigla</th>
+				<th></th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>';
+	foreach($respuesta as $row => $item){
+	$table .= '<tr>
+			<td>'.$item["codigo"].'</td>
+			<td>'.$item["nombre"].'</td>
+			<td>'.$item["sigla"].'</td>
+			<td><a href="index.php?action=dependencia-academica&mod=true&codigo='.$item["codigo"].'"><button>Editar</button></a></td>
+			<td><a href="index.php?action=dependencia-academica&off=true&codigo='.$item["codigo"].'"><button>Inactivar</button></a></td>
+		</tr>';
 	}
+	$table .= '</tbody></table>';
+	return $table;
+	}
+
+	
 
 }
 
