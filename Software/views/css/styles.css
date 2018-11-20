@@ -177,3 +177,10 @@ footer {
     color: white;
     text-align: center;
 }
+
+#hijito{
+    display: none;
+}
+#calidad{
+    display: none;
+}
