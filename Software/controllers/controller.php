@@ -179,9 +179,9 @@ class MvcController{
 		$respuesta = null;
 
 		if(isset($_POST)){
-			$respuesta = $this::functionsPost();
+			$respuesta = $this::functionsPostAcademic();
 		}else if(isset($_GET)){
-			$respuesta = $this::functionsGet();
+			$respuesta = $this::functionsGetAcademic();
 		}
 		//Imprime los resultados obtenidos
 		$this::print_answere($respuesta);
@@ -197,7 +197,7 @@ class MvcController{
 		}
 	}
 
-private function functionsPost(){
+private function functionsPostAcademic(){
 	if(isset($_POST["main"])){
 		//Si esta iniciado Main (Academico o Administrativo), obtiene los datos ingresados
 		$datosController = array( 
@@ -222,7 +222,7 @@ private function functionsPost(){
 	}
 }
 
-private function functionsGet(){
+private function functionsGetAcademic(){
 		//Proceso de Inactivación de Dependencia
 		if(isset($_GET['off'])&&$_GET['off']=="true"){
 			return Academico::inactivar($_GET['codigo']);
