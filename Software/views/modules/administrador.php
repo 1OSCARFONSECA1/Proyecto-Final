@@ -47,6 +47,6 @@
 <?php
 //Inicia el Controlador
 $controller = new MvcController();
-//Realiza todo el proceso de Academia (Resultados o Acciones)
-$controller->academic();
+//Realiza todo el proceso de Administradores (Resultados o Acciones)
+$controller->administradores();
 ?>
