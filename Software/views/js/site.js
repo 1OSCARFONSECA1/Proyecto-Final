@@ -7,7 +7,7 @@ function navbar() {
     }
 }
 
-
+//Academico Adminisrativo
 $("select#typeMain").change(function () {
     if(this.value == "facultad"){
         $("#addHijito").show();
@@ -64,5 +64,41 @@ $('#addHijito').on('click',function(e){
 
 $('#addCalidad').on('click',function(e){
     $("#calidad").show();
+});
+
+//Consulta
+$('#seeHistorial').on('click',function(e){
+    $("#Historial").show();
+});
+
+
+$('#vencimientoProcesos').on('click',function(e){
+    $("#procesos").show();
+});
+
+$("select#elements").change(function () {
+    if(this.value == "Academico"||this.value == "Administrativo"){
+        $('#seeHistorial').show();
+        $('#procesos').show();
+    }else{
+        $('#seeHistorial').hide();
+        $('#procesos').hide();
+    }
+});
+
+$("select#calidadSelected").change(function () {
+    if(this.value == "Auto_Evaluacion"||this.value == "Registro_Calificado" || this.value == "Acreditacion"){
+        $("#result").show();
+    }else{
+        $("#result").hide();
+    }
+});
+
+$("select#calidadSelectProcesos").change(function () {
+    if(this.value == "Auto_Evaluacion"||this.value == "Registro_Calificado" || this.value == "Acreditacion"){
+        $("#resultTwo").show();
+    }else{
+        $("#resultTwo").hide();
+    }
 });
 

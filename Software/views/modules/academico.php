@@ -25,7 +25,7 @@
         <div id="hijito">
             <hr/> Adicionar hijo:
             <label>Adicionar</label>
-            <select id="element">
+            <select id="element" name="element">
               <option value="Seleccione" selected>Seleccione</option>
               <option value="programa">programa</option>
               <option value="departamento">departamento</option>

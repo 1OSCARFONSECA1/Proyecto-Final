@@ -1,5 +1,7 @@
-Adicionar (Hijos en academico), Administrativo
 FALTA: Modificar TODO
+FALTA: Procesos Academicos: (Adicionar, Modificar, Listar) Registro Calificado, Acreditaci�n y auto evaluaci�n: Otra casilla mostrando las caracteristicas anteriormente mencionadas.
+
+Adicionar (Hijos en academico), Administrativo
 
 Academico: Selecciona facultad aparece el adionionar (programa o departamento)
 
@@ -7,10 +9,7 @@ Dep. Administrativa puede pertenecer a otra Dep. Administrativa.
 
 Programas Academicos y Dep.Administrativa: Tienen Proceso de calidad. DB: ProcesoCalidad
 
-FALTA: Procesos Academicos: (Adicionar, Modificar, Listar) Registro Calificado, Acreditaci�n y auto evaluaci�n: Otra casilla mostrando las caracteristicas anteriormente mencionadas.
-
 Registro Calificado, Acreditaci�n: Add Tiempo de vigencia [a�os] (calenadar html).
-
 
 Academicos:
 RC o AC
@@ -49,6 +48,7 @@ Consultas:
 
 
 	
+
 
 
 
