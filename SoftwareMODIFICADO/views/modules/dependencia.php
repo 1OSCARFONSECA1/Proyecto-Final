@@ -37,7 +37,9 @@ $controller->academic();
         <label>Nombre</label><input type="text" name="name" placeholder="Digite por favor el nombre de la dependencia" />
         <label>Sigla</label><input type="text" name="sigla" placeholder="Digite por favor la sigla de la dependencia" />
 		<label>Activo: </label><input type="checkbox" name="active" value="1" checked>
-    </div>
-	<button name="add" type="submit">Adicionar</button>
+    <button name="add" type="submit">Adicionar</button>
+	</div>
+	
 	<button name="list" type="submit">Lista</button>
+	
 </form>

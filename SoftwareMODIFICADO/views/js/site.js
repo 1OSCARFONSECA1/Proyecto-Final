@@ -113,12 +113,7 @@ $("select#main").change(function () {
         $("#administrativa").show();
         $("#Academico").hide();
     }
-
-    if (this.value != "Seleccione") {
-        $("#dependencia").show();
-    } else {
-        $("#dependencia").hide();
-    }
+    
 });
 
 $("select#element-academica").change(function () {
@@ -130,7 +125,7 @@ $("select#element-academica").change(function () {
     }
 });
 
-$("select#element-administrativo").change(function () {
+$("select#element-administrativa").change(function () {
     console.log(this.value);
     if(this.value != "Seleccione"){
         $("#dependencia").show();

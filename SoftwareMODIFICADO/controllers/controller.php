@@ -223,7 +223,7 @@ class MvcController{
 				"code"=>isset($_POST["code"])?$_POST["code"]:"",
 				"name"=>isset($_POST["name"])?$_POST["name"]:"",
 				"sigla"=>isset($_POST["sigla"])?$_POST["sigla"]:"",
-				"active"=>isset($_POST["active"])?$_POST["mainactive"]:"",
+				"active"=>isset($_POST["active"])?$_POST["active"]:"",
 				"type"=>isset($_POST["element-administrativa"])?$_POST["element-administrativa"]:"",
 				);
 			}
