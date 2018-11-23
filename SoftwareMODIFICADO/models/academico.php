@@ -41,7 +41,7 @@ public function AdicionarHijo($datosModel,$moreData){
 		//Cambio de variables
 		$stmt->bindParam(":dateOne",$datosModel["only-autoevaluacion"], PDO::PARAM_STR);
 		$stmt->bindParam(":dateTwo",$datosModel["only-renovacion"], PDO::PARAM_STR);
-		if(isset($datosModel["calidadSelect"])&&$datosModel["calidadSelect"]=="Registro_Calificado"){
+		}else if(isset($datosModel["calidadSelect"])&&$datosModel["calidadSelect"]=="Registro_Calificado"){
 		$stmt = Conexion::conectar()->prepare("INSERT INTO `vigencia_programa` (`idVigencia_Programa`, `tiempoVigencia`, `numeroResolucion`, `fechaResolucion`, `numeroMEN`, `type`, `Dependencia_idDependencia`) VALUES (NULL, ':vigencia_Registro_Calificado', ':numberMEN_Registro_Calificado', NULL, NULL, ':calidadSelect', ':code')");	
 		$stmt->bindParam(":numberMEN_Registro_Calificado",$_POST["numberMEN_Registro_Calificado"], PDO::PARAM_STR);
 		$stmt->bindParam(":vigencia_Registro_Calificado",$_POST["vigencia_Registro_Calificado"], PDO::PARAM_STR);
