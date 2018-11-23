@@ -19,22 +19,7 @@ $("select#typeMain").change(function () {
 });
 
 
-$("select#calidadSelect").change(function () {
-    if(this.value == "Auto_Evaluacion"){
-        $("#optionOne").hide();
-        $("#optionTwo").show();
-    }else if(this.value == "Registro_Calificado" || this.value == "Acreditacion"){
-        var text = '';
-        text = '<label>Numero de Resolución (MEN):<label> <input type="number" name="numberMEN_'+this.value+'" placeholder="Número del '+this.value+'" />'+
-        '<label>Tiempo de Vigencia del '+this.value+':</label> <input type="number" name="vigencia_'+this.value+'" value="2018" min="2018" >';
-        $("#optionOne").html(text);
-        $("#optionOne").show();
-        $("#optionTwo").hide();
-    }else{
-        $("#optionOne").hide();
-        $("#optionTwo").hide();
-    }
-});
+
 
 
 $("select#element").change(function () {
@@ -52,20 +37,7 @@ $("select#element").change(function () {
 });
 
 
-$('#addCalidadAdmin').on('click',function(e){
-    $("#calidadAuto").val("calidadAuto");
-    $("#addCalidadAdmin").attr("disabled", true);
-    $("#calidad").show();
-});
 
-$('#addHijito').on('click',function(e){
-    $("#hijito").show();
-});
-
-
-$('#addCalidad').on('click',function(e){
-    $("#calidad").show();
-});
 
 //Consulta
 $('#seeHistorial').on('click',function(e){
@@ -135,3 +107,34 @@ $("select#element-administrativa").change(function () {
     console.log(this.value);
 });
 
+$('#addCalidadAdmin').on('click', function (e) {
+    $("#calidadAuto").val("calidadAuto");
+    $("#addCalidadAdmin").attr("disabled", true);
+    $("#calidad").show();
+});
+
+$('#addHijito').on('click', function (e) {
+    $("#hijito").show();
+});
+
+
+$('#addCalidad').on('click', function (e) {
+    $("#calidad").show();
+});
+
+$("select#calidadSelect").change(function () {
+    if (this.value == "Auto_Evaluacion") {
+        $("#optionOne").hide();
+        $("#optionTwo").show();
+    } else if (this.value == "Registro_Calificado" || this.value == "Acreditacion") {
+        var text = '';
+        text = '<label>Numero de Resolución (MEN):<label> <input type="number" name="numberMEN_' + this.value + '" placeholder="Número del ' + this.value + '" />' +
+            '<label>Tiempo de Vigencia del ' + this.value + ':</label> <input type="number" name="vigencia_' + this.value + '" value="2018" min="2018" >';
+        $("#optionOne").html(text);
+        $("#optionOne").show();
+        $("#optionTwo").hide();
+    } else {
+        $("#optionOne").hide();
+        $("#optionTwo").hide();
+    }
+});

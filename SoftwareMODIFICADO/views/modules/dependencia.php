@@ -38,8 +38,35 @@ $controller->academic();
         <label>Nombre</label><input type="text" name="name" placeholder="Digite por favor el nombre de la dependencia" />
         <label>Sigla</label><input type="text" name="sigla" placeholder="Digite por favor la sigla de la dependencia" />
 		<label>Activo: </label><input type="checkbox" name="active" value="1" checked>
-    <button name="add" type="submit">Adicionar</button>
+    
+		<button id="addCalidad" name="addCalidad" type="button">Adicionar Proceso de Calidad</button>
+	<button name="add" type="submit">Adicionar</button>
+
 	</div>
+	<hr/>
+	        <div id="calidad">
+        <h3>Proceso de calidad</h3>
+            <label>Añadir </label>
+            <select id="calidadSelect" name="calidadSelect">
+              <option value="Seleccione" selected>Seleccione</option>
+              <option value="Registro_Calificado">Registro Calificado</option>
+              <option value="Acreditacion">Acreditación</option>
+              <option value="Auto_Evaluacion">Auto-Evaluacion</option>
+            </select>
+            <br/><br/>
+            <div id="optionOne" style="display:none">
+			        <h3>Proceso de calidad</h3>
+            <label>Añadir Auto-Evaluacion</label>
+            <label>Fecha AutoEvaluaciónn: </label> <input type="date" name="only-autoevaluacion">
+            <label>Fecha Proxima Autoevaluación:</label> <input type="date" name="only-renovacion">
+            <hr/>
+            </div>
+            <div id="optionTwo"  style="display:none">
+            <label>Fecha AutoEvaluaciónn: </label> <input type="date" name="autoevaluacion">
+            <label>Fecha Proxima Autoevaluación:</label> <input type="date" name="renovacion">
+            </div>
+            <hr/>
+        </div>
 	
 	<button name="list" type="submit">Lista</button>
 	

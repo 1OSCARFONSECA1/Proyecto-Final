@@ -231,8 +231,32 @@ class MvcController{
 
 			//Presiono el boton de Añadir
 			if(isset($_POST["add"])){
-				//Regresa un valor "Succesfull" si todo salio correcto de lo contrario regresa "Error"
+			//Regresa un valor "Succesfull" si todo salio correcto de lo contrario regresa "Error"
 				Academico::Adicionar($datosController);
+				///cALIDAD|
+			$moreData = array();
+			if(isset($_POST["addCalidad"])){
+
+				if(isset($_POST["only-autoevaluacion"])){
+				$moreData = array(
+					"calidadSelect" => isset($_POST["calidadSelect"])?$_POST["calidadSelect"]:"",
+					"only-autoevaluacion" => isset($_POST["only-autoevaluacion"])?$_POST["only-autoevaluacion"]:"",
+					"only-renovacion" => isset($_POST["only-renovacion"])?$_POST["only-renovacion"]:"",
+				);
+				}else {
+				$moreData = array(
+					"calidadSelect" => isset($_POST["calidadSelect"])?$_POST["calidadSelect"]:"",
+					"autoevaluacion" => isset($_POST["autoevaluacion"])?$_POST["autoevaluacion"]:"",
+					"renovacion" => isset($_POST["renovacion"])?$_POST["renovacion"]:"",
+					"numberMEN_Registro_Calificado" => isset($_POST["numberMEN_Registro_Calificado"])?$_POST["numberMEN_Registro_Calificado"]:"",
+					"vigencia_Registro_Calificado" => isset($_POST["vigencia_Registro_Calificado"])?$_POST["vigencia_Registro_Calificado"]:"",
+				);
+			}
+			}
+
+	//Regresa un valor "Succesfull" si todo salio correcto de lo contrario regresa "Error"
+				Academico::AdicionarHijo($datosController,$moreData);
+				
 				echo self::vistaAcademic();
 			}//Presiono el boton de modificar
 			else if(isset($_POST["mod"])){

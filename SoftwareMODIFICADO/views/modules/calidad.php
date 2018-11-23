@@ -31,6 +31,25 @@ $controller->dependencias();
             <label>Fecha Proxima Autoevaluación:</label> <input type="date" name="renovacion">
         </div>
     </div>
+	<hr/>
+	        <div id="calidad">
+        <h3>Proceso de calidad</h3>
+            <label>Añadir </label>
+            <select id="calidadSelect" name="calidadSelect">
+              <option value="Seleccione" selected>Seleccione</option>
+              <option value="Registro_Calificado">Registro Calificado</option>
+              <option value="Acreditacion">Acreditación</option>
+              <option value="Auto_Evaluacion">Auto-Evaluacion</option>
+            </select>
+            <br/><br/>
+            <div id="optionOne" style="display:none">
+            </div>
+            <div id="optionTwo"  style="display:none">
+            <label>Fecha AutoEvaluaciónn: </label> <input type="date" name="autoevaluacion">
+            <label>Fecha Proxima Autoevaluación:</label> <input type="date" name="renovacion">
+            </div>
+            <hr/>
+        </div>
     <button name="add" type="submit">Adicionar</button>
 	<br/>
 	
