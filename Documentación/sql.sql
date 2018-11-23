@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Dependencia` (
   `codigo` INT NOT NULL,
   `nombre` VARCHAR(45) NOT NULL,
   `sigla` VARCHAR(45) NOT NULL,
-  `type` ENUM("facultad", "programa", "departamento") NOT NULL,
+  `type` ENUM("facultad", "programa", "departamento", "rectoria", "vicerectoria", "departamento-financiero") NOT NULL,
   `active` TINYINT NOT NULL,
   `procesoCalidad` TINYINT NULL,
   `Dependencia_idDependencia` INT NULL,
