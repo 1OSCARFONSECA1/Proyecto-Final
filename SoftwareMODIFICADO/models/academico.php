@@ -33,7 +33,7 @@ class Academico extends Conexion{
 		$stmt->close();
 	}
 	
-		public function AdicionarHijo($datosController,$moreData){
+public function AdicionarHijo($datosController,$moreData){
 		$stmt = null;
 		//Sql Adicion de dependencia 
 		if(isset($_POST["only-autoevaluacion"])){
@@ -42,13 +42,7 @@ class Academico extends Conexion{
 		$stmt->bindParam(":dateOne",$datosModel["only-autoevaluacion"], PDO::PARAM_STR);
 		$stmt->bindParam(":dateTwo",$datosModel["only-renovacion"], PDO::PARAM_STR);
 		}else{
-		//INSERT INTO `vigencia_programa` (`idVigencia_Programa`, `tiempoVigencia`, `numeroResolucion`, `fechaResolucion`, `numeroMEN`, `type`, `Dependencia_idDependencia`) VALUES (NULL, '2018-11-14', '123', '2018-11-14', '123', ':calidadSelect', '2')
-		
-
-				
-		$stmt = Conexion::conectar()->prepare("INSERT INTO `autoevaluacion` (`idAutoevaluacion`, `fecha_auto`, `fecha_reno`, `Dependencia_idDependencia`) VALUES (NULL, ':dateOne', ':dateTwo', ':code')");	
-		
-
+		$stmt = Conexion::conectar()->prepare("INSERT INTO `vigencia_programa` (`idVigencia_Programa`, `tiempoVigencia`, `numeroResolucion`, `fechaResolucion`, `numeroMEN`, `type`, `Dependencia_idDependencia`) VALUES (NULL, '2018-11-14', '123', '2018-11-14', '123', ':calidadSelect', '2')");	
 		if($datosModel["calidadSelect"]=="Auto_Evaluacion"){
 		$stmt->bindParam(":dateOne",$datosModel["autoevaluacion"], PDO::PARAM_STR);
 		$stmt->bindParam(":dateTwo",$datosModel["renovacion"], PDO::PARAM_STR);
@@ -56,9 +50,6 @@ class Academico extends Conexion{
 			//Cambio de variables
 			$stmt->bindParam(":calidadSelect",$datosModel["calidadSelect"], PDO::PARAM_STR);
 		}
-		}else{
-		
-		
 		}
 		$stmt->bindParam(":code", $datosModel["code"], PDO::PARAM_STR);
 		//Ejecuta la SQL
