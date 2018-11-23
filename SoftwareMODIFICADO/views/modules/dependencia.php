@@ -7,7 +7,7 @@ $controller->academic();
 <h1>Bienvenid@ al sitio de gestion de las dependencias</h1>
 <hr/>
 <form method="post">
-    <label>Tipo dependencia </label>
+    <label>Seleccione Dependencia:</label>
     <select name="main" id="main">
         <option value="Seleccione" selected>Seleccione</option>
         <option value="academica">Academica</option>
@@ -39,5 +39,5 @@ $controller->academic();
 		<label>Activo: </label><input type="checkbox" name="active" value="1" checked>
         <button name="add" type="submit">Adicionar</button>
     </div>
-	<button name="list" type="submit">Lista</button>
+	<button name="list-special" type="submit">Lista</button>
 </form>

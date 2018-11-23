@@ -3,7 +3,7 @@
 <form method="post">
     <center>
 <label>Seleccione Dependencia:</label>
-<select id="elements" name="elemets">
+<select id="main" name="main">
               <option value="Seleccione" selected>Seleccione</option>
               <option value="Academico">Academico</option>
               <option value="Administrativo">Administrativo</option>
@@ -46,5 +46,6 @@
             Ejemplo: - NOmbre de la dependecia, fecha del ultimo proceso, fecha del proximo proceso.</p>
     </div>
 </div>
+<button name="list-special" type="submit">Lista</button>
 </center>
 </form>

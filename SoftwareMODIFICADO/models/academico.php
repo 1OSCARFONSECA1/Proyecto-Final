@@ -61,6 +61,44 @@ class Academico extends Conexion{
 
 	}
 
+	public function seeDataModifySpecial($main,$active=false){
+		//Prepara la SQL de Datos a Modificar
+		$stmt = Conexion::conectar()->prepare("SELECT *  FROM `dependencia` WHERE `main` = '$main' AND :active = '$active'");
+	
+		if($stmt->execute()){
+			$item = $stmt->fetchAll();
+				$table = '<h2>Lista Academica</h2>
+		<table border="1" class="ml-auto mr-auto">
+			<thead>
+				<tr>
+					<th>Código</th>
+					<th>Nombre</th>
+					<th>Sigla</th>
+					<th></th>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>';
+		foreach($respuesta as $row => $item){
+		$table .= '<tr>
+				<td>'.$item["codigo"].'</td>
+				<td>'.$item["nombre"].'</td>
+				<td>'.$item["sigla"].'</td>
+				<td><a href="index.php?action=dependencia-academica&mod=true&codigo='.$item["codigo"].'"><button>Editar</button></a></td>
+				<td><a href="index.php?action=dependencia-academica&off=false&codigo='.$item["codigo"].'"><button>Inactivar</button></a>
+				<a href="index.php?action=dependencia-academica&off=true&codigo='.$item["codigo"].'"><button>Activar</button></a></td>
+			</tr>';
+		}
+		$table .= '</tbody></table>';
+		return $table;
+		}else{
+			return "error".var_dump($datosModel);
+		}
+		$stmt->close();
+
+	}
+
 	public function datos(){
 		$stmt = Conexion::conectar()->prepare("SELECT `codigo`, `nombre`, `sigla`  FROM `dependencia` WHERE `main`='Academico'");	
 		$stmt->execute();

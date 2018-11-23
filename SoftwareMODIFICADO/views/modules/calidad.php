@@ -7,12 +7,15 @@ $controller->dependencias();
 <h1>Bienvenid@ al sitio de gestion de las dependencias</h1>
 <hr/>
 <form method="post">
-    <label>Tipo dependencia </label>
+    <label>Seleccione Dependencia:</label>
     <select name="main" id="main">
         <option value="Seleccione" selected>Seleccione</option>
         <option value="academica">Academica</option>
-        <option value="administrativa">Administrativa</option>
+        <option value="Administrativo">Administrativa</option>
     </select>
+			<br/>
+			<label>Activo: </label><input type="checkbox" name="active" value="1" checked>
+			<br/>
     <div id="dependencia-academica" style="display:none">
     <label>Adicionar</label>
             <select id="element-calidad-academica" name="element-academica">
@@ -29,4 +32,6 @@ $controller->dependencias();
         </div>
     </div>
     <button name="add" type="submit">Adicionar</button>
+	<br/>
+	
 </form>

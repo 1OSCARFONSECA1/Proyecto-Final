@@ -240,6 +240,8 @@ class MvcController{
 			}else if(isset($_POST["list"])){
 				//Imprime una lista de resultados de Academia
 				echo self::vistaAcademic();
+			}else if(isset($_POST["list-special"])){
+			echo Academico::seeDataModifySpecial($_POST["main"],true);
 			}
 		}
 	}
