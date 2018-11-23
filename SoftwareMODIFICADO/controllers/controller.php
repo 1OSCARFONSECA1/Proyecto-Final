@@ -172,6 +172,12 @@ class MvcController{
 
 	}
 
+	#Dependencias
+	public function dependencias(){
+		
+	}
+
+
 	#Process Academic
 	#------------------------------------
 	public function academic(){

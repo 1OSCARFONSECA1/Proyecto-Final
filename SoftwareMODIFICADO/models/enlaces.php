@@ -12,10 +12,9 @@ class Paginas{
 			//Si no es algun usuario, busca que enlace es el correcto
 		switch ($enlaces) {
 				case 'dependencia-administrativa':
-				$module .= "administrador";
-				break;
 				case 'dependencia-academica':
-				$module .= "academico";
+				case 'dependencia':
+				$module .= "dependencia";
 				break;
 				case 'consulta':
 				$module .= "consulta";

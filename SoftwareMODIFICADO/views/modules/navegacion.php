@@ -1,7 +1,7 @@
 <div class="topnav" id="myTopnav">
   <a href="index.php" class="active">Inicio</a>
   <!--<a href="index.php?action=dependencia-administrativa">Dependencia</a>-->
-  <a href="index.php?action=dependencia-academica">Dependencia </a>
+  <a href="index.php?action=dependencia">Dependencia </a>
   <a href="index.php?action=consulta">Consulta</a>
   <div class="dropdown" style="float: right !important;">
     <button class="dropbtn">Ingreso / Registro 

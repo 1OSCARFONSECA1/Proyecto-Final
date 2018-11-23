@@ -181,6 +181,11 @@ footer {
 #hijito{
     display: none;
 }
+
 #calidad{
+    display: none;
+}
+
+#dependencia{
     display: none;
 }
