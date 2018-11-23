@@ -64,8 +64,6 @@ public function AdicionarHijo($datosModel,$moreData){
 		}else{
 			echo "error".var_dump($_POST);
 		}
-		//Cierra la conexión
-		$stmt->close();
 		}
 	}
 
