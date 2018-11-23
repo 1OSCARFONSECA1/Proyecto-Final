@@ -35,32 +35,34 @@ class Academico extends Conexion{
 	
 public function AdicionarHijo($datosModel,$moreData){	
 		$stmt = null;
+		
 		//Sql Adicion de dependencia 
-		if(isset($datosModel["calidadSelect"])&&$datosModel["calidadSelect"]=="Auto_Evaluacion"){
+		if(isset($_POST["calidadSelect"])&&$_POST["calidadSelect"]=="Auto_Evaluacion"){
 		$stmt = Conexion::conectar()->prepare("INSERT INTO `autoevaluacion` (`idAutoevaluacion`, `fecha_auto`, `fecha_reno`, `Dependencia_idDependencia`) VALUES (NULL, ':dateOne', ':dateTwo', ':code')");	
 		//Cambio de variables
-		$stmt->bindParam(":dateOne",$datosModel["only-autoevaluacion"], PDO::PARAM_STR);
-		$stmt->bindParam(":dateTwo",$datosModel["only-renovacion"], PDO::PARAM_STR);
-		}else if(isset($datosModel["calidadSelect"])&&$datosModel["calidadSelect"]=="Registro_Calificado"){
-		$stmt = Conexion::conectar()->prepare("INSERT INTO `vigencia_programa` (`idVigencia_Programa`, `tiempoVigencia`, `numeroResolucion`, `fechaResolucion`, `numeroMEN`, `type`, `Dependencia_idDependencia`) VALUES (NULL, ':vigencia_Registro_Calificado', ':numberMEN_Registro_Calificado', NULL, NULL, ':calidadSelect', ':code')");	
+		$stmt->bindParam(":dateOne",$_POST["only-autoevaluacion"], PDO::PARAM_STR);
+		$stmt->bindParam(":dateTwo",$_POST["only-renovacion"], PDO::PARAM_STR);
+		}else if(isset($_POST["calidadSelect"])&&$_POST["calidadSelect"]=="Registro_Calificado"){
+		$stmt = Conexion::conectar()->prepare("INSERT INTO `vigencia_programa` (`idVigencia_Programa`, `tiempoVigencia`, `numeroResolucion`, `fechaResolucion`, `numeroMEN`, `type`, `Dependencia_idDependencia`) VALUES (NULL, '10', ':numberMEN_Registro_Calificado', ':vigencia_Registro_Calificado', NULL, ':calidadSelect', ':code')");	
 		$stmt->bindParam(":numberMEN_Registro_Calificado",$_POST["numberMEN_Registro_Calificado"], PDO::PARAM_STR);
 		$stmt->bindParam(":vigencia_Registro_Calificado",$_POST["vigencia_Registro_Calificado"], PDO::PARAM_STR);
 			
-		}else if(isset($datosModel["calidadSelect"])&&$datosModel["calidadSelect"]=="Acreditacion"){
-		$stmt = Conexion::conectar()->prepare("INSERT INTO `vigencia_programa` (`idVigencia_Programa`, `tiempoVigencia`, `numeroResolucion`, `fechaResolucion`, `numeroMEN`, `type`, `Dependencia_idDependencia`) VALUES (NULL, ':vigencia_Acreditacion', NULL, NULL, ':numMen', ':calidadSelect', ':code')");	
+		}else if(isset($_POST["calidadSelect"])&&$_POST["calidadSelect"]=="Acreditacion"){
+		$stmt = Conexion::conectar()->prepare("INSERT INTO `vigencia_programa` (`idVigencia_Programa`, `tiempoVigencia`, `numeroResolucion`, `fechaResolucion`, `numeroMEN`, `type`, `Dependencia_idDependencia`) VALUES (NULL, '10', NULL, ':vigencia_Acreditacion', ':numMen', ':calidadSelect', ':code')");	
 		$stmt->bindParam(":numMen",$_POST["numberMEN_Acreditacion"], PDO::PARAM_STR);
 		$stmt->bindParam(":vigencia_Acreditacion",$_POST["vigencia_Acreditacion"], PDO::PARAM_STR);
 		}
 
 		if($stmt!=null){
+		echo isset($_POST["calidadSelect"])?$_POST["calidadSelect"]:"";
 		//Cambio de variables
 		$stmt->bindParam(":calidadSelect",$_POST["calidadSelect"], PDO::PARAM_STR);
-		$stmt->bindParam(":code", $datosModel["code"], PDO::PARAM_STR);
+		$stmt->bindParam(":code", $_POST["code"], PDO::PARAM_STR);
 		//Ejecuta la SQL
 		if($stmt->execute()){
-			return "success";
+			echo "success";
 		}else{
-			return "error".var_dump($datosModel);
+			echo "error".var_dump($_POST);
 		}
 		//Cierra la conexión
 		$stmt->close();
