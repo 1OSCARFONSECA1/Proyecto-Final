@@ -28,7 +28,7 @@ $controller->academic();
             <select id="element-administrativa" name="element-administrativa">
               <option value="Seleccione" selected>Seleccione</option>
               <option value="recotria">rectoria</option>
-              <option value="vicerecotria">rectoria</option>
+              <option value="vicerecotria">vicerecotria</option>
               <option value="departamento-financiamiento">Departamento de Financiamiento</option>
             </select>
     </div>
