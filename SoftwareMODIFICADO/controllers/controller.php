@@ -186,7 +186,8 @@ class MvcController{
 
 		if(isset($_POST)){
 			$respuesta = $this::functionsPostAcademic();
-		}else if(isset($_GET)){
+		}
+		if(isset($_GET)){
 			$respuesta = $this::functionsGetAcademic();
 		}
 		//Imprime los resultados obtenidos
@@ -206,18 +207,33 @@ class MvcController{
 	private function functionsPostAcademic(){
 		if(isset($_POST["main"])){
 			//Si esta iniciado Main (Academico o Administrativo), obtiene los datos ingresados
+			$datosController = array();
+
+			if($_POST["main"]=="academica"){
 			$datosController = array( 
 				"main"=>$_POST["main"],
 				"code"=>$_POST["code"],
 				"name"=>$_POST["name"],	
 				"sigla"=>$_POST["sigla"],
-				"type"=>$_POST["type"],
-				"active"=>$_POST["active"]
+				"active"=>$_POST["active"],
+				"type"=>$_POST["element-academica"]
 			);
+			}else{
+							$datosController = array( 
+				"main"=>$_POST["main"],
+				"code"=>$_POST["code"],
+				"name"=>$_POST["name"],	
+				"sigla"=>$_POST["sigla"],
+				"active"=>$_POST["active"],
+				"type"=>$_POST["element-administrativa"]
+				);
+			}
+
 			//Presiono el boton de Añadir
 			if(isset($_POST["add"])){
 				//Regresa un valor "Succesfull" si todo salio correcto de lo contrario regresa "Error"
-				return Academico::Adicionar($datosController);
+				Academico::Adicionar($datosController);
+				return $this::vistaAcademic();
 			}//Presiono el boton de modificar
 			else if(isset($_POST["mod"])){
 
@@ -234,7 +250,9 @@ class MvcController{
 				return Academico::inactivar($_GET['codigo']);
 			}//Proceso de Modificacion (Visualización de Datos) de Dependencia
 			else if(isset($_GET['mod'])&&$_GET['mod']=="true"){
-				return Academico::seeDataModify($_GET['codigo']);
+				return Academico::seeDataModify($_GET['codigo'],true);
+			}else if(isset($_GET['mod'])&&$_GET['mod']=="false"){
+				return Academico::seeDataModify($_GET['codigo'],false);
 			}
 		}
 
@@ -251,6 +269,7 @@ class MvcController{
 					<th>Sigla</th>
 					<th></th>
 					<th></th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>';
@@ -260,7 +279,8 @@ class MvcController{
 				<td>'.$item["nombre"].'</td>
 				<td>'.$item["sigla"].'</td>
 				<td><a href="index.php?action=dependencia-academica&mod=true&codigo='.$item["codigo"].'"><button>Editar</button></a></td>
-				<td><a href="index.php?action=dependencia-academica&off=true&codigo='.$item["codigo"].'"><button>Inactivar</button></a></td>
+				<td><a href="index.php?action=dependencia-academica&off=false&codigo='.$item["codigo"].'"><button>Inactivar</button></a></td>
+				<td><a href="index.php?action=dependencia-academica&off=true&codigo='.$item["codigo"].'"><button>Activar</button></a></td>
 			</tr>';
 		}
 		$table .= '</tbody></table>';

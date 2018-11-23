@@ -2,7 +2,7 @@
 //Inicia el Controlador
 $controller = new MvcController();
 //Realiza todo el proceso de Administradores (Resultados o Acciones)
-$controller->dependencias();
+$controller->academic();
 ?>
 <h1>Bienvenid@ al sitio de gestion de las dependencias</h1>
 <hr/>
@@ -13,7 +13,8 @@ $controller->dependencias();
         <option value="academica">Academica</option>
         <option value="administrativa">Administrativa</option>
     </select>
-    <div id="dependencia-academica">
+	<br/>
+    <div id="academica"  style="display:none">
     <label>Adicionar</label>
             <select id="element-academica" name="element-academica">
               <option value="Seleccione" selected>Seleccione</option>
@@ -22,18 +23,20 @@ $controller->dependencias();
               <option value="departamento">departamento</option>
             </select>
     </div>
-    <div id="dependencia administrativa">
+    <div id="administrativa"  style="display:none">
     <label>Adicionar</label>
-            <select id="element-academica" name="element-academica">
+            <select id="element-administrativa" name="element-administrativa">
               <option value="Seleccione" selected>Seleccione</option>
               <option value="recotria">rectoria</option>
               <option value="departamento-financiamiento">Departamento de Financiamiento</option>
             </select>
     </div>
-    <div id="dependencia">
+    <br/>
+	<div id="dependencia">
         <label>Codigo<input type="number" name="code" placeholder="Digite por favor el código de la dependencia" min="0" /></label>
         <label>Nombre</label><input type="text" name="name" placeholder="Digite por favor el nombre de la dependencia" />
         <label>Sigla</label><input type="text" name="sigla" placeholder="Digite por favor la sigla de la dependencia" />
+		<label>Activo: </label><input type="checkbox" name="active" value="1" checked>
         <button name="add" type="submit">Adicionar</button>
     </div>
 </form>

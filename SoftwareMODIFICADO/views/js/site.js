@@ -7,6 +7,7 @@ function navbar() {
     }
 }
 
+/*
 //Academico Adminisrativo
 $("select#typeMain").change(function () {
     if(this.value == "facultad"){
@@ -99,6 +100,36 @@ $("select#calidadSelectProcesos").change(function () {
         $("#resultTwo").show();
     }else{
         $("#resultTwo").hide();
+    }
+});*/
+
+//Academico Adminisrativo
+$("select#main").change(function () {
+    console.log(this.value);
+    if(this.value == "academica"){
+        $("#academica").show();
+        $("#administrativa").hide();
+    }else{
+        $("#administrativa").show();
+        $("#academica").hide();
+    }
+});
+
+$("select#element-academica").change(function () {
+    console.log(this.value);
+    if(this.value != "Seleccione"){
+        $("#dependencia").show();
+    }else{
+        $("#dependencia").hide();
+    }
+});
+
+$("select#element-administrativo").change(function () {
+    console.log(this.value);
+    if(this.value != "Seleccione"){
+        $("#dependencia").show();
+    }else{
+        $("#dependencia").show();
     }
 });
 

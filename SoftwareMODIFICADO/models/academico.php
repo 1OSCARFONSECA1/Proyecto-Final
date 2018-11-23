@@ -33,9 +33,9 @@ class Academico extends Conexion{
 		$stmt->close();
 	}
 	
-	public function inactivar($code){
+	public function inactivar($code,$active=false){
 		//Prepara la SQL de Inactivar
-		$stmt = Conexion::conectar()->prepare("UPDATE dependencia SET active = 'false' WHERE codigo = :code");
+		$stmt = Conexion::conectar()->prepare("UPDATE dependencia SET active = '$active' WHERE codigo = :code");
 		//Remplaza el Código en la SQL
 		$stmt->bindParam(":code", $code, PDO::PARAM_STR);
 		//Ejecuta la SQL

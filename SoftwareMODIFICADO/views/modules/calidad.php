@@ -13,7 +13,7 @@ $controller->dependencias();
         <option value="academica">Academica</option>
         <option value="administrativa">Administrativa</option>
     </select>
-    <div id="dependencia-academica">
+    <div id="dependencia-academica" style="display:none">
     <label>Adicionar</label>
             <select id="element-calidad-academica" name="element-academica">
               <option value="Seleccione" selected>Seleccione</option>
@@ -22,7 +22,7 @@ $controller->dependencias();
               <option value="departamento">departamento</option>
             </select>
     </div>
-    <div id="dependencia administrativa">
+    <div id="dependencia administrativa" style="display:none">
         <div id="content-admin">
             <label>Fecha AutoEvaluaciónn: </label> <input type="date" name="autoevaluacion">
             <label>Fecha Proxima Autoevaluación:</label> <input type="date" name="renovacion">
