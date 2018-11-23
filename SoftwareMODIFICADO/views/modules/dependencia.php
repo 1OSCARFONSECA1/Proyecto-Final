@@ -11,7 +11,7 @@ $controller->academic();
     <select name="main" id="main">
         <option value="Seleccione" selected>Seleccione</option>
         <option value="academica">Academica</option>
-        <option value="administrativa">Administrativa</option>
+        <option value="Administrativo">Administrativa</option>
     </select>
 	<br/>
     <div id="academica"  style="display:none">
@@ -39,4 +39,5 @@ $controller->academic();
 		<label>Activo: </label><input type="checkbox" name="active" value="1" checked>
         <button name="add" type="submit">Adicionar</button>
     </div>
+	<button name="list" type="submit">Lista</button>
 </form>

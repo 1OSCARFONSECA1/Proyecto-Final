@@ -131,5 +131,6 @@ $("select#element-administrativo").change(function () {
     }else{
         $("#dependencia").show();
     }
+    console.log(this.value);
 });
 

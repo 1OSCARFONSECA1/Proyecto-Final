@@ -48,7 +48,7 @@ class Academico extends Conexion{
 		$stmt->close();
 	}
 
-	public function seeDataModify($code){
+	public function seeDataModify($code,$active=false){
 		//Prepara la SQL de Datos a Modificar
 		$stmt = Conexion::conectar()->prepare("SELECT `codigo`, `nombre`, `sigla`  FROM `dependencia` WHERE `main` = 'Academico' AND codigo = :code");
 		$stmt->bindParam(":code", $code, PDO::PARAM_STR);

@@ -233,13 +233,13 @@ class MvcController{
 			if(isset($_POST["add"])){
 				//Regresa un valor "Succesfull" si todo salio correcto de lo contrario regresa "Error"
 				Academico::Adicionar($datosController);
-				return $this::vistaAcademic();
+				echo self::vistaAcademic();
 			}//Presiono el boton de modificar
 			else if(isset($_POST["mod"])){
 
 			}else if(isset($_POST["list"])){
 				//Imprime una lista de resultados de Academia
-				return $this::vistaAcademic();
+				echo self::vistaAcademic();
 			}
 		}
 	}
@@ -279,8 +279,8 @@ class MvcController{
 				<td>'.$item["nombre"].'</td>
 				<td>'.$item["sigla"].'</td>
 				<td><a href="index.php?action=dependencia-academica&mod=true&codigo='.$item["codigo"].'"><button>Editar</button></a></td>
-				<td><a href="index.php?action=dependencia-academica&off=false&codigo='.$item["codigo"].'"><button>Inactivar</button></a></td>
-				<td><a href="index.php?action=dependencia-academica&off=true&codigo='.$item["codigo"].'"><button>Activar</button></a></td>
+				<td><a href="index.php?action=dependencia-academica&off=false&codigo='.$item["codigo"].'"><button>Inactivar</button></a>
+				<a href="index.php?action=dependencia-academica&off=true&codigo='.$item["codigo"].'"><button>Activar</button></a></td>
 			</tr>';
 		}
 		$table .= '</tbody></table>';
