@@ -1,3 +1,9 @@
+<?php
+//Inicia el Controlador
+$controller = new MvcController();
+//Realiza todo el proceso de Administradores (Resultados o Acciones)
+$controller->academic();
+?>
 <h1>Herramientas de Consulta</h1>
 <br/>
 <form method="post">

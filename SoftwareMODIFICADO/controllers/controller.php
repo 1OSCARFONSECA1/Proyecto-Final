@@ -209,6 +209,9 @@ class MvcController{
 			//Si esta iniciado Main (Academico o Administrativo), obtiene los datos ingresados
 			$datosController = array();
 
+			if(isset($_POST["list-special"])){
+			echo self::vistaAcademic(Academico::seeDataModifySpecial($_POST["main"]));
+			}else{
 			if($_POST["main"]=="academica"){
 			$datosController = array( 
 				"main"=>$_POST["main"],
@@ -228,6 +231,7 @@ class MvcController{
 				"type"=>$_POST["element-administrativa"]
 				);
 			}
+			}
 
 			//Presiono el boton de Añadir
 			if(isset($_POST["add"])){
@@ -240,8 +244,6 @@ class MvcController{
 			}else if(isset($_POST["list"])){
 				//Imprime una lista de resultados de Academia
 				echo self::vistaAcademic();
-			}else if(isset($_POST["list-special"])){
-			echo Academico::seeDataModifySpecial($_POST["main"],true);
 			}
 		}
 	}
@@ -260,8 +262,12 @@ class MvcController{
 
 
 
-		public function vistaAcademic(){
+		public function vistaAcademic($data){
+		if($data == null){
 		$respuesta = Academico::datos();
+		}else{
+		$respuesta = $data;
+		}
 		$table = '<h2>Lista Academica</h2>
 		<table border="1" class="ml-auto mr-auto">
 			<thead>
