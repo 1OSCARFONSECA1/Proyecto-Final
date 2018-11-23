@@ -174,7 +174,7 @@ class MvcController{
 
 	#Dependencias
 	public function dependencias(){
-		
+		self::academic();
 	}
 
 
@@ -208,15 +208,13 @@ class MvcController{
 		if(isset($_POST["main"])){
 			//Si esta iniciado Main (Academico o Administrativo), obtiene los datos ingresados
 			$datosController = array();
-
-
 			if($_POST["main"]=="Academico"){
 			$datosController = array( 
 				"main"=>isset($_POST["main"])?$_POST["main"]:"",
 				"code"=>isset($_POST["code"])?$_POST["code"]:"",
 				"name"=>isset($_POST["name"])?$_POST["name"]:"",
 				"sigla"=>isset($_POST["sigla"])?$_POST["sigla"]:"",
-				"active"=>isset($_POST["active"])?$_POST["mainactive"]:"",
+				"active"=>isset($_POST["active"])?$_POST["active"]:"",
 				"type"=>isset($_POST["element-academica"])?$_POST["element-academica"]:"",
 			);
 			}else{

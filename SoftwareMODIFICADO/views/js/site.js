@@ -106,12 +106,18 @@ $("select#calidadSelectProcesos").change(function () {
 //Academico Adminisrativo
 $("select#main").change(function () {
     console.log(this.value);
-    if(this.value == "academica"){
-        $("#academica").show();
+    if(this.value == "Academico"){
+        $("#Academico").show();
         $("#administrativa").hide();
     }else{
         $("#administrativa").show();
-        $("#academica").hide();
+        $("#Academico").hide();
+    }
+
+    if (this.value != "Seleccione") {
+        $("#dependencia").show();
+    } else {
+        $("#dependencia").hide();
     }
 });
 

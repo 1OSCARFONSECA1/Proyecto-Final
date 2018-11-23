@@ -10,11 +10,11 @@ $controller->academic();
     <label>Seleccione Dependencia:</label>
     <select name="main" id="main">
         <option value="Seleccione" selected>Seleccione</option>
-        <option value="Academico">Academica</option>
+        <option value="Academico">Academico</option>
         <option value="Administrativo">Administrativa</option>
     </select>
 	<br/>
-    <div id="academica"  style="display:none">
+    <div id="Academico"  style="display:none">
     <label>Adicionar</label>
             <select id="element-academica" name="element-academica">
               <option value="Seleccione" selected>Seleccione</option>
@@ -37,7 +37,7 @@ $controller->academic();
         <label>Nombre</label><input type="text" name="name" placeholder="Digite por favor el nombre de la dependencia" />
         <label>Sigla</label><input type="text" name="sigla" placeholder="Digite por favor la sigla de la dependencia" />
 		<label>Activo: </label><input type="checkbox" name="active" value="1" checked>
-        <button name="add" type="submit">Adicionar</button>
     </div>
+	<button name="add" type="submit">Adicionar</button>
 	<button name="list" type="submit">Lista</button>
 </form>
