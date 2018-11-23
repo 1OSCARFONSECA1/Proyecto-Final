@@ -248,7 +248,7 @@ class MvcController{
 					"calidadSelect" => isset($_POST["calidadSelect"])?$_POST["calidadSelect"]:"",
 					"autoevaluacion" => isset($_POST["autoevaluacion"])?$_POST["autoevaluacion"]:"",
 					"renovacion" => isset($_POST["renovacion"])?$_POST["renovacion"]:"",
-					"numberMEN_Registro_Calificado" => isset($_POST["numberMEN_Registro_Calificado"])?$_POST["numberMEN_Registro_Calificado"]:"",
+					"numberMEN_Registro_Calificado"		 => isset($_POST["numberMEN_Registro_Calificado"])?$_POST["numberMEN_Registro_Calificado"]:"",
 					"vigencia_Registro_Calificado" => isset($_POST["vigencia_Registro_Calificado"])?$_POST["vigencia_Registro_Calificado"]:"",
 				);
 			}

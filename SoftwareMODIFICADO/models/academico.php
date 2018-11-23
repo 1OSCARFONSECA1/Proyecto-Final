@@ -41,12 +41,18 @@ public function AdicionarHijo($datosModel,$moreData){
 		//Cambio de variables
 		$stmt->bindParam(":dateOne",$datosModel["only-autoevaluacion"], PDO::PARAM_STR);
 		$stmt->bindParam(":dateTwo",$datosModel["only-renovacion"], PDO::PARAM_STR);
-		}else{
-		$stmt = Conexion::conectar()->prepare("INSERT INTO `vigencia_programa` (`idVigencia_Programa`, `tiempoVigencia`, `numeroResolucion`, `fechaResolucion`, `numeroMEN`, `type`, `Dependencia_idDependencia`) VALUES (NULL, '2018-11-14', '123', '2018-11-14', '123', ':calidadSelect', '2')");	
-		
-			//Cambio de variables
-			$stmt->bindParam(":calidadSelect",$datosModel["calidadSelect"], PDO::PARAM_STR);
+		if(isset($datosModel["calidadSelect"])&&$datosModel["calidadSelect"]=="Registro_Calificado"){
+		$stmt = Conexion::conectar()->prepare("INSERT INTO `vigencia_programa` (`idVigencia_Programa`, `tiempoVigencia`, `numeroResolucion`, `fechaResolucion`, `numeroMEN`, `type`, `Dependencia_idDependencia`) VALUES (NULL, ':vigencia_Registro_Calificado', ':numberMEN_Registro_Calificado', NULL, NULL, ':calidadSelect', ':code')");	
+		$stmt->bindParam(":numberMEN_Registro_Calificado",$_POST["numberMEN_Registro_Calificado"], PDO::PARAM_STR);
+		$stmt->bindParam(":vigencia_Registro_Calificado",$_POST["vigencia_Registro_Calificado"], PDO::PARAM_STR);
+			
+		}else if(isset($datosModel["calidadSelect"])&&$datosModel["calidadSelect"]=="Acreditacion"){
+		$stmt = Conexion::conectar()->prepare("INSERT INTO `vigencia_programa` (`idVigencia_Programa`, `tiempoVigencia`, `numeroResolucion`, `fechaResolucion`, `numeroMEN`, `type`, `Dependencia_idDependencia`) VALUES (NULL, ':vigencia_Acreditacion', NULL, NULL, ':numMen', ':calidadSelect', ':code')");	
+		$stmt->bindParam(":numMen",$_POST["numberMEN_Acreditacion"], PDO::PARAM_STR);
+		$stmt->bindParam(":vigencia_Acreditacion",$_POST["vigencia_Acreditacion"], PDO::PARAM_STR);
 		}
+		//Cambio de variables
+		$stmt->bindParam(":calidadSelect",$datosModel["calidadSelect"], PDO::PARAM_STR);
 		$stmt->bindParam(":code", $datosModel["code"], PDO::PARAM_STR);
 		//Ejecuta la SQL
 		if($stmt->execute()){
