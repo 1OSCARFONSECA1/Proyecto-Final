@@ -51,8 +51,10 @@ public function AdicionarHijo($datosModel,$moreData){
 		$stmt->bindParam(":numMen",$_POST["numberMEN_Acreditacion"], PDO::PARAM_STR);
 		$stmt->bindParam(":vigencia_Acreditacion",$_POST["vigencia_Acreditacion"], PDO::PARAM_STR);
 		}
+
+		if($stmt!=null){
 		//Cambio de variables
-		$stmt->bindParam(":calidadSelect",$datosModel["calidadSelect"], PDO::PARAM_STR);
+		$stmt->bindParam(":calidadSelect",$_POST["calidadSelect"], PDO::PARAM_STR);
 		$stmt->bindParam(":code", $datosModel["code"], PDO::PARAM_STR);
 		//Ejecuta la SQL
 		if($stmt->execute()){
@@ -62,6 +64,7 @@ public function AdicionarHijo($datosModel,$moreData){
 		}
 		//Cierra la conexión
 		$stmt->close();
+		}
 	}
 
 	
