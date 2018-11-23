@@ -28,4 +28,5 @@ $controller->dependencias();
             <label>Fecha Proxima Autoevaluación:</label> <input type="date" name="renovacion">
         </div>
     </div>
+    <button name="add" type="submit">Adicionar</button>
 </form>
