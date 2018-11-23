@@ -10,7 +10,7 @@ $controller->academic();
     <label>Seleccione Dependencia:</label>
     <select name="main" id="main">
         <option value="Seleccione" selected>Seleccione</option>
-        <option value="academica">Academica</option>
+        <option value="Academico">Academica</option>
         <option value="Administrativo">Administrativa</option>
     </select>
 	<br/>
@@ -39,5 +39,5 @@ $controller->academic();
 		<label>Activo: </label><input type="checkbox" name="active" value="1" checked>
         <button name="add" type="submit">Adicionar</button>
     </div>
-	<button name="list-special" type="submit">Lista</button>
+	<button name="list" type="submit">Lista</button>
 </form>

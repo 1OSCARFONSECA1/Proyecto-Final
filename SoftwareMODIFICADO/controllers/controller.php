@@ -209,29 +209,27 @@ class MvcController{
 			//Si esta iniciado Main (Academico o Administrativo), obtiene los datos ingresados
 			$datosController = array();
 
-			if(isset($_POST["list-special"])){
-			echo self::vistaAcademic(Academico::seeDataModifySpecial($_POST["main"]));
-			}else{
-			if($_POST["main"]=="academica"){
+
+			if($_POST["main"]=="Academico"){
 			$datosController = array( 
-				"main"=>$_POST["main"],
-				"code"=>$_POST["code"],
-				"name"=>$_POST["name"],	
-				"sigla"=>$_POST["sigla"],
-				"active"=>$_POST["active"],
-				"type"=>$_POST["element-academica"]
+				"main"=>isset($_POST["main"])?$_POST["main"]:"",
+				"code"=>isset($_POST["code"])?$_POST["code"]:"",
+				"name"=>isset($_POST["name"])?$_POST["name"]:"",
+				"sigla"=>isset($_POST["sigla"])?$_POST["sigla"]:"",
+				"active"=>isset($_POST["active"])?$_POST["mainactive"]:"",
+				"type"=>isset($_POST["element-academica"])?$_POST["element-academica"]:"",
 			);
 			}else{
-							$datosController = array( 
-				"main"=>$_POST["main"],
-				"code"=>$_POST["code"],
-				"name"=>$_POST["name"],	
-				"sigla"=>$_POST["sigla"],
-				"active"=>$_POST["active"],
-				"type"=>$_POST["element-administrativa"]
+			$datosController = array( 
+				"main"=>isset($_POST["main"])?$_POST["main"]:"",
+				"code"=>isset($_POST["code"])?$_POST["code"]:"",
+				"name"=>isset($_POST["name"])?$_POST["name"]:"",
+				"sigla"=>isset($_POST["sigla"])?$_POST["sigla"]:"",
+				"active"=>isset($_POST["active"])?$_POST["mainactive"]:"",
+				"type"=>isset($_POST["element-administrativa"])?$_POST["element-administrativa"]:"",
 				);
 			}
-			}
+			
 
 			//Presiono el boton de Añadir
 			if(isset($_POST["add"])){
@@ -244,6 +242,8 @@ class MvcController{
 			}else if(isset($_POST["list"])){
 				//Imprime una lista de resultados de Academia
 				echo self::vistaAcademic();
+			}else if(isset($_POST["list-special"])){
+			echo self::vistaAcademic(Academico::seeDataModifySpecial($_POST["main"]));
 			}
 		}
 	}
@@ -260,14 +260,9 @@ class MvcController{
 			}
 		}
 
-
-
-		public function vistaAcademic($data){
-		if($data == null){
-		$respuesta = Academico::datos();
-		}else{
-		$respuesta = $data;
-		}
+		public function vistaAcademic($data=null){
+		$respuesta = Academico::datos($_POST["main"]);
+		echo var_dump($respuesta);
 		$table = '<h2>Lista Academica</h2>
 		<table border="1" class="ml-auto mr-auto">
 			<thead>

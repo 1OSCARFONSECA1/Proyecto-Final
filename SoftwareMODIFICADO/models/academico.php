@@ -63,8 +63,7 @@ class Academico extends Conexion{
 
 	public function seeDataModifySpecial($code){
 		//Prepara la SQL de Datos a Modificar
-		$stmt = Conexion::conectar()->prepare("SELECT `codigo`, `nombre`, `sigla`  FROM `dependencia` WHERE `main` = ':code' AND active = '1'");
-		$stmt->bindParam(":code", $code, PDO::PARAM_STR);
+		$stmt = Conexion::conectar()->prepare("SELECT `codigo`, `nombre`, `sigla`  FROM `dependencia` WHERE `main` = '$code' AND active = '1'");
 		if($stmt->execute()){
 			return $stmt->fetchAll();
 		}else{
@@ -74,8 +73,8 @@ class Academico extends Conexion{
 
 	}
 
-	public function datos(){
-		$stmt = Conexion::conectar()->prepare("SELECT `codigo`, `nombre`, `sigla`  FROM `dependencia` WHERE `main`='Academico'");	
+	public function datos($main){
+		$stmt = Conexion::conectar()->prepare("SELECT `codigo`, `nombre`, `sigla`  FROM `dependencia` WHERE `main`='$main'");	
 		$stmt->execute();
 		return $stmt->fetchAll();
 		$stmt->close();
